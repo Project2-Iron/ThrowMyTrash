@@ -29,6 +29,21 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(
+  session({
+    secret: "ThrowMyTrash",
+    resave: true,
+    saveUninitialized: true,
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
+  })
+);
+
+require("./passport")(app);
+
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
 
 // Express View engine setup
 
@@ -53,6 +68,8 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
 app.use('/', index);
+const passportRouter = require("./routes/passportRouter");
+app.use("/", passportRouter);
 
 
 module.exports = app;
