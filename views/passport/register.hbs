@@ -1,4 +1,43 @@
-<div class="signup">
+<div class="login-page">
+  <div class="form">
+    <form method="POST" class="login-form">
+      {{!-- <form method="POST" class="login-form" action="/login"> --}}
+      <div>
+        <label for="firstName"></label>
+        <input type="text" id="firstName" placeholder="First Name" required="true" name="name">
+      </div>
+      <div>
+        <label for="lastName"></label>
+        <input type="text" id="lastName" placeholder="Last Name" required="true" name="Lastname">
+      </div>
+      <div>
+        <label for="address"></label>
+        <input type="text" id="address" placeholder="Address" required="true" name="address">
+      </div>
+      <div>
+        <label for="city"></label>
+        <input type="text" id="city" placeholder="City" required="true" name="city">
+      </div>
+      <div>
+        <label for="zip"></label>
+        <input type="text" id="zip" placeholder="Zip Code" required="true" name="zip">
+      </div>
+      <div>
+        <label for="exampleInputEmail1"></label>
+        <input type="email" id="exampleImputEmail1" aria-describedby="emailHelp" placeholder="username" required="true"
+          name="username">
+      </div>
+      <div>
+        <label for="password"></label>
+        <input type="password" id="password" placeholder="password" required="true" name="password" />
+      </div>
+      <button type="submit">register</button>
+      <p class="message">Al ready register?<a href="/login">Go to login</a></p>
+    </form>
+  </div>
+</div>
+
+{{!-- <div class="signup">
   <form method="POST" class="w-75 mx-auto mt-5">
     <label class="row justify-content-center text-center">
       <div class="col-md-7 col-12">
@@ -51,4 +90,4 @@
       <button type="submit" class="btn btn-success btn-lg">Register</button>
     </div>
   </form>
-</div>
+</div> --}}
