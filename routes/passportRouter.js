@@ -43,8 +43,8 @@ passportRouter.get("/logout", ensureLogin.ensureLoggedIn(), (req, res) => {
   res.redirect("/");
 });
 
-// passportRouter.get("/private", ensureLogin.ensureLoggedIn(), (req, res) => {
-//   res.render("passport/private", { user: req.user });
-// });
+passportRouter.get("/profile", ensureLogin.ensureLoggedIn(), (req, res) => {
+  res.render("passport/profile", { user: req.user });
+});
 
 module.exports = passportRouter;
