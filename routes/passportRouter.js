@@ -34,7 +34,7 @@ passportRouter.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/",
-    failureRedirect: "/"
+    failureRedirect: "/login"
   })
 );
 

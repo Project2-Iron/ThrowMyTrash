@@ -43,7 +43,7 @@ app.use(
   })
 );
 
-// require("./passport")(app);
+require("./passport")(app);
 
 app.use((req, res, next) => {
   res.locals.user = req.user;
