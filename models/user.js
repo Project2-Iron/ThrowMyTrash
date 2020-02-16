@@ -5,11 +5,11 @@ const userSchema = new Schema(
   {
     name: String,
     lastName: String,
-    username: String,
-    password: String,
     address: String,
     city: String,
-    zip: Number
+    zip: Number,
+    username: String,
+    password: String
   },
   {
     timestamps: true
