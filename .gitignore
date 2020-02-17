@@ -6,11 +6,9 @@ node_modules
 # Debug log from npm
 npm-debug.log
 
-# Environment Variables should NEVER be published
+# Example JSON
+**/*.json
+
+# ENV
 .env
 
-# MVP example JSON
-example.json
-
-# Complete example JSON
-convertcsv.json
