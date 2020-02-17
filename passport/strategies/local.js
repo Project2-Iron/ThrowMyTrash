@@ -6,7 +6,7 @@ const { checkHashed } = require("../../lib/hashing");
 passport.use(
   new LocalStrategy(async (username, password, done) => {
     try {
-      const foundUser = await model.findOne({ username });
+      const foundUser = await User.findOne({ username });
       if (foundUser) {
         checkHashed(password, foundUser.password)
           ? done(null, foundUser)
