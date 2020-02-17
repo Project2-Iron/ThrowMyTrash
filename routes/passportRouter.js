@@ -10,7 +10,7 @@ passportRouter.get("/register", (req, res, next) => {
 });
 
 passportRouter.post("/register", async (req, res, next) => {
-  const { username, password } = req.body;
+  const { name, lastName, address, city, zip, username, password } = req.body;
   console.log("username");
   const userCreated = await model.findOne({ username });
 
@@ -18,11 +18,15 @@ passportRouter.post("/register", async (req, res, next) => {
     return res.redirect("/register");
   } else {
     await model.create({
+      name,
+      lastName,
+      address,
+      city,
+      zip,
       username,
       password: hashPassword(password)
     });
   }
-
   return res.redirect("/");
 });
 
