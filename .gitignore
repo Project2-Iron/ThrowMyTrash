@@ -1,3 +1,5 @@
+# Ignore guide
+guide
 # Dependency directory
 node_modules
 
