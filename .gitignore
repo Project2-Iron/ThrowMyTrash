@@ -8,3 +8,9 @@ npm-debug.log
 
 # Environment Variables should NEVER be published
 .env
+
+# MVP example JSON
+example.json
+
+# Complete example JSON
+convertcsv.json
