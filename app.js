@@ -71,6 +71,7 @@ app.locals.title = "Throw My Trash";
 
 const index = require("./routes/index");
 app.use("/", index);
+
 const passportRouter = require("./routes/passportRouter");
 app.use("/", passportRouter);
 
