@@ -15,7 +15,7 @@ passportRouter.post("/register", async (req, res, next) => {
   const userCreated = await model.findOne({ username });
 
   if (userCreated) {
-    return res.redirect("/register");
+    return res.redirect("/login");
   } else {
     await model.create({
       name,
@@ -38,7 +38,7 @@ passportRouter.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/",
-    failureRedirect: "/login"
+    failureRedirect: "/register"
   })
 );
 
