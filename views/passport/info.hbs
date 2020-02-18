@@ -1,0 +1,14 @@
+<h2>Change your Info</h2>
+{{#with user}}
+<form method="POST" action="/info/{{this._id}}">
+  <p>Name</p>
+  <input type="text" class="form-control form-control-lg" value="{{this.name}}" name="name">
+  <p>Last Name</p>
+  <input type="text" class="form-control form-control-lg" value="{{this.lastName}}" name="lastName">
+  <p>Address</p>
+  <input type="text" class="form-control form-control-lg" value="{{this.address}}" name="address">
+  <p>Password</p>
+  <input type="password" class="form-control form-control-lg" value="{{this.password}}" required="true" name="password">
+  <button type="submit" class="btn btn-success button2">Update</button>
+</form>
+{{/with}}

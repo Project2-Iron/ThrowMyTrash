@@ -5,6 +5,41 @@ const model = require("../models/user");
 const passport = require("passport");
 const { hashPassword, checkHashed } = require("../lib/hashing");
 
+passportRouter.get("/favourites", (req, res, next) => {
+  res.render("passport/favourites");
+});
+
+passportRouter.get("/info", (req, res, next) => {
+  return res.render("passport/info");
+});
+
+// passportRouter.get("/info", async (req, res, next) => {
+//   const { id } = req.params;
+//   try {
+//     const user = await model.findById(id);
+//     return res.render("passport/info", { user });
+//   } catch (error) {
+//     next();
+//   }
+// });
+
+passportRouter.post("/info/:id", async (req, res, next) => {
+  const { id } = req.params;
+  const { name, lastName, address, password } = req.body;
+  try {
+    await model.findByIdAndUpdate(id, {
+      name,
+      lastName,
+      address,
+      password: hashPassword(password)
+    });
+    res.redirect("/info");
+  } catch (error) {
+    console.log(error);
+    next();
+  }
+});
+
 passportRouter.get("/register", (req, res, next) => {
   res.render("passport/register");
 });
@@ -15,7 +50,7 @@ passportRouter.post("/register", async (req, res, next) => {
   const userCreated = await model.findOne({ username });
 
   if (userCreated) {
-    return res.redirect("/register");
+    return res.redirect("/login");
   } else {
     await model.create({
       name,
@@ -37,8 +72,8 @@ passportRouter.get("/login", (req, res, next) => {
 passportRouter.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/login"
+    successRedirect: "/page-personal",
+    failureRedirect: "/register"
   })
 );
 
@@ -47,8 +82,12 @@ passportRouter.get("/logout", ensureLogin.ensureLoggedIn(), (req, res) => {
   res.redirect("/");
 });
 
-passportRouter.get("/profile", ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render("passport/profile", { user: req.user });
-});
+passportRouter.get(
+  "/page-personal",
+  ensureLogin.ensureLoggedIn(),
+  (req, res) => {
+    res.render("passport/page-personal", { user: req.user });
+  }
+);
 
 module.exports = passportRouter;
