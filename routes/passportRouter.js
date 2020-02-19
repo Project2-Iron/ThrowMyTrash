@@ -5,6 +5,10 @@ const model = require("../models/user");
 const passport = require("passport");
 const { hashPassword, checkHashed } = require("../lib/hashing");
 
+passportRouter.get("/about", (req, res, next) => {
+  res.render("passport/about");
+});
+
 passportRouter.get("/favourites", (req, res, next) => {
   res.render("passport/favourites");
 });
