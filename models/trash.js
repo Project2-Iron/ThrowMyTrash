@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const basuraSchema = new Schema(
+const trashSchema = new Schema(
   {
     type: String,
     longitud: String,
@@ -13,5 +13,5 @@ const basuraSchema = new Schema(
   }
 );
 
-const Basura = mongoose.model("Basura", basuraSchema);
-module.exports = Basura;
+const Trash = mongoose.model("trash", trashSchema);
+module.exports = Trash;
