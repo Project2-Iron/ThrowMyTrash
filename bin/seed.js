@@ -1,5 +1,6 @@
+const withDbConnection = require("../withDbConnection");
 const data = require("../data/convertcsv.json");
-// console.log(data);
+const trashModel = require("../models/trash");
 
 const containers = data.map(e => {
   const container = {};
@@ -10,4 +11,6 @@ const containers = data.map(e => {
   return container;
 });
 
-console.log(containers);
+withDbConnection(async () => {
+  await trashModel.create(containers);
+});
