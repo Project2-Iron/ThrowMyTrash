@@ -10,9 +10,10 @@ const logger = require("morgan");
 const path = require("path");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+const dbUrl = process.env.DBURL;
 
 mongoose
-  .connect("mongodb://localhost/throwmytrash", {
+  .connect(dbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })

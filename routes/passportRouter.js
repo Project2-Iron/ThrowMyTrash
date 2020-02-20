@@ -13,37 +13,6 @@ passportRouter.get("/favourites", (req, res, next) => {
   res.render("passport/favourites");
 });
 
-passportRouter.get("/info", (req, res, next) => {
-  return res.render("passport/info");
-});
-
-// passportRouter.get("/info", async (req, res, next) => {
-//   const { id } = req.params;
-//   try {
-//     const user = await model.findById(id);
-//     return res.render("passport/info", { user });
-//   } catch (error) {
-//     next();
-//   }
-// });
-
-passportRouter.post("/info/:id", async (req, res, next) => {
-  const { id } = req.params;
-  const { name, lastName, address, password } = req.body;
-  try {
-    await model.findByIdAndUpdate(id, {
-      name,
-      lastName,
-      address,
-      password: hashPassword(password)
-    });
-    res.redirect("/info");
-  } catch (error) {
-    console.log(error);
-    next();
-  }
-});
-
 passportRouter.get("/register", (req, res, next) => {
   res.render("passport/register");
 });
@@ -93,5 +62,26 @@ passportRouter.get(
     res.render("passport/page-personal", { user: req.user });
   }
 );
+
+passportRouter.get("/info", (req, res, next) => {
+  return res.render("passport/info");
+});
+
+passportRouter.post("/info/:id", async (req, res, next) => {
+  const { id } = req.params;
+  const { name, lastName, address, password } = req.body;
+  try {
+    await model.findByIdAndUpdate(id, {
+      name,
+      lastName,
+      address,
+      password: hashPassword(password)
+    });
+    res.redirect("/info");
+  } catch (error) {
+    console.log(error);
+    next();
+  }
+});
 
 module.exports = passportRouter;
