@@ -9,7 +9,8 @@ const userSchema = new Schema(
     city: String,
     zip: Number,
     username: String,
-    password: String
+    password: String,
+    favourites: Array
   },
   {
     timestamps: true

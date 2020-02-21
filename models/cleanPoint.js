@@ -3,15 +3,10 @@ const Schema = mongoose.Schema;
 
 const cPointSchema = new Schema(
   {
-    name: String,
-    address: {
-      locality: String,
-      streetAddress: String
-    },
-    location: {
-      lat: String,
-      lng: String
-    }
+    type: String,
+    lng: Number,
+    lat: Number,
+    street: String
   },
   {
     timestamps: true

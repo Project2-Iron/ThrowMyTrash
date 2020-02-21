@@ -4,13 +4,18 @@ const ensureLogin = require("connect-ensure-login");
 const model = require("../models/user");
 const passport = require("passport");
 const { hashPassword, checkHashed } = require("../lib/hashing");
+const Cpoint = require("../models/cleanPoint"); // añadido
 
 passportRouter.get("/about", (req, res, next) => {
   res.render("passport/about");
 });
 
 passportRouter.get("/favourites", (req, res, next) => {
-  res.render("passport/favourites");
+  const cpoint = Cpoint.find(); // añadido
+
+  console.log(cpoint);
+
+  res.render("passport/favourites", { cpoint }); // añadido
 });
 
 passportRouter.get("/register", (req, res, next) => {
@@ -32,7 +37,8 @@ passportRouter.post("/register", async (req, res, next) => {
       city,
       zip,
       username,
-      password: hashPassword(password)
+      password: hashPassword(password),
+      favourites: " "
     });
   }
   return res.redirect("/");
