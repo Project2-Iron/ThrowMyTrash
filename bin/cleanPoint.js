@@ -14,15 +14,10 @@ const getCleanPoint = async () => {
     cPoints = response.data["@graph"];
     cPoints = cPoints.filter(e => e.location);
     cPoints = cPoints.map(cPoint => ({
-      name: cPoint.title,
-      address: {
-        locality: cPoint.address.locality,
-        streetAddres: cPoint.address["street-address"]
-      },
-      location: {
-        lat: cPoint.location.latitude,
-        lng: cPoint.location.longitude
-      }
+      type: cPoint.title,
+      lng: cPoint.location.longitude,
+      lat: cPoint.location.latitude,
+      street: cPoint.address["street-address"]
     }));
   } catch (error) {
     console.log(error);

@@ -12,5 +12,6 @@ const containers = data.map(e => {
 });
 
 withDbConnection(async () => {
-  await trashModel.create(containers);
+  const newTrash = await trashModel.create(containers);
+  console.log(`${newTrash.length} Containers created`);
 });

@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 const trashSchema = new Schema(
   {
     type: String,
-    lng: String,
-    lat: String,
+    lng: Number,
+    lat: Number,
     street: String
   },
   {
