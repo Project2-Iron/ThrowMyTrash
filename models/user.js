@@ -10,7 +10,7 @@ const userSchema = new Schema(
     zip: Number,
     username: String,
     password: String,
-    favourites: Array
+    favourites: [{}]
   },
   {
     timestamps: true
