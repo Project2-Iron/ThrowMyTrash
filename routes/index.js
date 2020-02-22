@@ -12,4 +12,9 @@ router.get("/trash", async (req, res, next) => {
   res.json(trash);
 });
 
+// router.get("/cPointns", async (req, res, next) => {
+//   const trash = await Trash.find();
+//   res.json(trash);
+// });
+
 module.exports = router;

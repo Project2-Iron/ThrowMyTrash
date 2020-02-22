@@ -13,14 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   map.on("load", function() {
     trashApi.get("/trash").then(res => {
-      const data = res.data;
-      const formatData = data.map(({ geometry, type }) => ({ geometry, type }));
-      console.log(formatData);
+      const dataContainers = res.data;
+      console.log(dataContainers);
       map.addSource("containers", {
         type: "geojson",
         data: {
           type: "FeatureCollection",
-          features: data
+          features: dataContainers
         }
       });
       map.addLayer({
@@ -40,5 +39,32 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     });
+  });
+  map.on("click", "trashcontainers", function(e) {
+    var coordinates = e.features[0].geometry.coordinates.slice();
+    var name = e.features[0].properties.name;
+    var id = e._id;
+
+    // Ensure that if the map is zoomed out such that multiple
+    // copies of the feature are visible, the popup appears
+    // over the copy being pointed to.
+    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    }
+
+    new mapboxgl.Popup()
+      .setLngLat(coordinates)
+      // .setHTML(id)
+      .setHTML(name)
+      .addTo(map);
+  });
+  // Change the cursor to a pointer when the mouse is over the places layer.
+  map.on("mouseenter", "trashcontaiers", function() {
+    map.getCanvas().style.cursor = "pointer";
+  });
+
+  // Change it back to a pointer when it leaves.
+  map.on("mouseleave", "trashcontainters", function() {
+    map.getCanvas().style.cursor = "";
   });
 });
