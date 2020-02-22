@@ -3,10 +3,14 @@ const Schema = mongoose.Schema;
 
 const trashSchema = new Schema(
   {
-    type: String,
-    lng: Number,
-    lat: Number,
-    street: String
+    type: { type: String, default: "Feature", required: true },
+    geometry: {
+      type: { type: String, default: "Point" },
+      coordinates: { type: [Number], required: true }
+    },
+    properties: {
+      name: { type: String }
+    }
   },
   {
     timestamps: true
