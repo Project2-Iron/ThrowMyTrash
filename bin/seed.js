@@ -16,8 +16,7 @@ const containers = data.map(e => {
   container.type = "Feature";
   container.geometry = {
     type: "Point",
-    coordinates: [e.LATITUD, e.LONGITUD] //.split(",").map(Number)
-    //req.body.coordinates.split(',').map(Number)
+    coordinates: [e.LONGITUD, e.LATITUD]
   };
   container.properties = {
     name: e["Tipo Contenedor"]
