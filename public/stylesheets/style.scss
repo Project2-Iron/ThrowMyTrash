@@ -1,6 +1,15 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #76b852; /* fallback for old browsers */
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+li{
+  list-style:none
 }
 
 a {
@@ -65,13 +74,20 @@ a {
   max-width: 300px;
   margin: 0 auto;
 }
-body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8dc26f);
-  background: -moz-linear-gradient(right, #76b852, #8dc26f);
-  background: -o-linear-gradient(right, #76b852, #8dc26f);
-  background: linear-gradient(to left, #76b852, #8dc26f);
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+.form-control {
+  display: unset;
+  width: 50%;
+  margin-left:25%
 }
+
+.title-info {
+  text-align: center;
+  margin: 15px;
+}
+
+.list{
+  margin-top:25px;
+  margin-bottom:25px;
+}
+

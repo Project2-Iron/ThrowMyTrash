@@ -1,22 +1,25 @@
+<div class="title-info">
 <h2>List Favourites clean point</h2>
+</div>
 {{!-- {{#with user}} --}}
 <div class="wrap">
   <form method="POST" action="/favourites">
-    <input name="search" id="search" type="text" class="searchTerm" placeholder="What are you search" required>
-    <button type="submit" class="searchButton">
-      {{!-- <i class="fa fa-search"></i> --}}
+    <input name="search" id="search" class="form-control mr-sm-8" type="text" placeholder="What are you search"
+      aria-label="Search" required>
+    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
     </button>
   </form>
 </div>
 
 <div>
   {{#each user.favourites}}
-  <div></div>
-  <div>
+  <div class="title-info">
     <ul>
       <form method="POST" action="/favourites/delete/{{this._id}}">
+        <div class="list">
         <li>{{this}}</li>
-        <button type="submit" class="hola"></button>
+        </div>
+        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Delete</button>
         <form action=""></form>
     </ul>
   </div>
@@ -25,7 +28,9 @@
 
 {{#each foundCleanPoint}}
 <form method="POST" action="/favourites/{{_id}}">
+<div class="list">
   <p>{{ type }}</p>
-  <button type="submit" class="searchButton"></button>
+  </div>
+  <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Add</button>
 </form>
 {{/each}}
