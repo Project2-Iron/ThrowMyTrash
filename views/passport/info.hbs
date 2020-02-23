@@ -1,19 +1,21 @@
-<div class="title-info ">
-  <h2>Change your Info</h2>
+<div class="info">
+  <div class="title-info ">
+    <h2>Change your Info</h2>
+  </div>
+  {{#with user}}
+  <div class="form">
+    <form method="POST" action="/info/{{this._id}}">
+      <h5>Name</h5>
+      <input type="text" class="form-control form-control-lg" value="{{this.name}}" name="name">
+      <h5>Last Name</h5>
+      <input type="text" class="form-control form-control-lg" value="{{this.lastName}}" name="lastName">
+      <h5>Address</h5>
+      <input type="text" class="form-control form-control-lg" value="{{this.address}}" name="address">
+      <h5>Password</h5>
+      <input type="password" class="form-control form-control-lg" value="{{this.password}}" required="true"
+        name="password">
+      <button type="submit" class="btn btn-success button2">Update</button>
+    </form>
+  </div>
+  {{/with}}
 </div>
-{{#with user}}
-<div class="form">
-  <form method="POST" action="/info/{{this._id}}">
-    <h5>Name</h5>
-    <input type="text" class="form-control form-control-lg" value="{{this.name}}" name="name">
-    <h5>Last Name</h5>
-    <input type="text" class="form-control form-control-lg" value="{{this.lastName}}" name="lastName">
-    <h5>Address</h5>
-    <input type="text" class="form-control form-control-lg" value="{{this.address}}" name="address">
-    <h5>Password</h5>
-    <input type="password" class="form-control form-control-lg" value="{{this.password}}" required="true"
-      name="password">
-    <button type="submit" class="btn btn-success button2">Update</button>
-  </form>
-</div>
-{{/with}}

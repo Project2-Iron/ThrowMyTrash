@@ -3,13 +3,10 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: #76b852; /* fallback for old browsers */
   font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-
-li{
-  list-style:none
+li {
+  list-style: none;
 }
 
 a {
@@ -78,7 +75,7 @@ a {
 .form-control {
   display: unset;
   width: 50%;
-  margin-left:25%
+  margin-left: 25%;
 }
 
 .title-info {
@@ -86,8 +83,7 @@ a {
   margin: 15px;
 }
 
-.list{
-  margin-top:25px;
-  margin-bottom:25px;
+.list {
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
-

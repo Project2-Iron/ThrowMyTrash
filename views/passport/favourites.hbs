@@ -1,36 +1,38 @@
-<div class="title-info">
-<h2>List Favourites clean point</h2>
-</div>
-{{!-- {{#with user}} --}}
-<div class="wrap">
-  <form method="POST" action="/favourites">
-    <input name="search" id="search" class="form-control mr-sm-8" type="text" placeholder="What are you search"
-      aria-label="Search" required>
-    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-    </button>
-  </form>
-</div>
-
 <div>
-  {{#each user.favourites}}
   <div class="title-info">
-    <ul>
-      <form method="POST" action="/favourites/delete/{{this._id}}">
-        <div class="list">
-        <li>{{this}}</li>
-        </div>
-        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Delete</button>
-        <form action=""></form>
-    </ul>
+    <h2>List Favourites clean point</h2>
+  </div>
+  <div class="wrap">
+    <form method="POST" action="/favourites">
+      <input name="search" id="search" class="form-control mr-sm-8" type="text" placeholder="What are you search"
+        aria-label="Search" required>
+      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+
+  <div>
+    {{#each user.favourites}}
+    <div class="title-info">
+      <ul>
+        <form method="POST" action="/favourites/delete/{{this._id}}">
+          <div class="list">
+            <li>{{this}}</li>
+          </div>
+          <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Delete</button>
+          <form action=""></form>
+      </ul>
+    </div>
+    {{/each}}
+  </div>
+
+  {{#each foundCleanPoint}}
+  <div>
+    <form method="POST" action="/favourites/{{_id}}">
+      <div class="list">
+        <p>{{ type }}</p>
+      </div>
+      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Add</button>
+    </form>
   </div>
   {{/each}}
 </div>
-
-{{#each foundCleanPoint}}
-<form method="POST" action="/favourites/{{_id}}">
-<div class="list">
-  <p>{{ type }}</p>
-  </div>
-  <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Add</button>
-</form>
-{{/each}}
