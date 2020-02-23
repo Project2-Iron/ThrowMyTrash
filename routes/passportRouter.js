@@ -146,7 +146,7 @@ passportRouter.post("/favourites/:id", async (req, res, next) => {
       { $addToSet: { favourites: idCp } },
       { new: true }
     );
-    // .populate("type");
+    Cpoint.populate(user, { path: "favourites" });
     console.log(user.favourites);
 
     res.redirect("/favourites");
