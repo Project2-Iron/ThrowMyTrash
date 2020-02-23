@@ -4,18 +4,39 @@ const ensureLogin = require("connect-ensure-login");
 const model = require("../models/user");
 const passport = require("passport");
 const { hashPassword, checkHashed } = require("../lib/hashing");
-const Cpoint = require("../models/cleanPoint"); // añadido
+const Cpoint = require("../models/cleanPoint");
+
+//search
+passportRouter.get("/favourites", (req, res, next) => {
+  Cpoint.find()
+    .then(element => {
+      data = {
+        user: req.user,
+        element
+      };
+      res.render("passport/favourites", { data });
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
+
+passportRouter.post("/favourites", (req, res, next) => {
+  const search = req.body.search;
+  Cpoint.find({ type: { $regex: search, $options: "i" } })
+    //.populate("review")
+    .then(foundCleanPoint => {
+      console.log(foundCleanPoint);
+      res.render("passport/favourites", { foundCleanPoint });
+    })
+    .catch(error => {
+      console.log(error);
+      next();
+    });
+});
 
 passportRouter.get("/about", (req, res, next) => {
   res.render("passport/about");
-});
-
-passportRouter.get("/favourites", (req, res, next) => {
-  const cpoint = Cpoint.find(); // añadido
-
-  console.log(cpoint);
-
-  res.render("passport/favourites", { cpoint }); // añadido
 });
 
 passportRouter.get("/register", (req, res, next) => {
@@ -23,7 +44,16 @@ passportRouter.get("/register", (req, res, next) => {
 });
 
 passportRouter.post("/register", async (req, res, next) => {
-  const { name, lastName, address, city, zip, username, password } = req.body;
+  const {
+    name,
+    lastName,
+    address,
+    city,
+    zip,
+    username,
+    password,
+    favourites
+  } = req.body;
   console.log("username");
   const userCreated = await model.findOne({ username });
 
@@ -38,7 +68,7 @@ passportRouter.post("/register", async (req, res, next) => {
       zip,
       username,
       password: hashPassword(password),
-      favourites: " "
+      favourites
     });
   }
   return res.redirect("/");
@@ -84,6 +114,42 @@ passportRouter.post("/info/:id", async (req, res, next) => {
       password: hashPassword(password)
     });
     res.redirect("/info");
+  } catch (error) {
+    console.log(error);
+    next();
+  }
+});
+
+passportRouter.post("/favourites/delete/:id", async (req, res, next) => {
+  const idCp = req.params;
+  const idUser = req.user.id;
+  console.log("aaaaaaaaaaaaaaaaaaaaaaaaa" + idCp);
+  console.log("bbbbbbbbbbbbbbbbbbbbbbbbb" + idUser);
+  try {
+    await model.findByIdAndRemove(idUser.favourites);
+    res.redirect("/favourites");
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+passportRouter.post("/favourites/:id", async (req, res, next) => {
+  console.log("entro por aqui");
+  const idCp = req.params.id;
+  console.log(idCp);
+  const idUser = req.user.id;
+  const user = req.user;
+
+  try {
+    await model.findByIdAndUpdate(
+      idUser,
+      { $addToSet: { favourites: idCp } },
+      { new: true }
+    );
+    // .populate("type");
+    console.log(user.favourites);
+
+    res.redirect("/favourites");
   } catch (error) {
     console.log(error);
     next();

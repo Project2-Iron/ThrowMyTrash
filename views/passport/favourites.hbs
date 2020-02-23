@@ -1,8 +1,31 @@
 <h2>List Favourites clean point</h2>
 {{!-- {{#with user}} --}}
-{{#each cpoint}}
-<p>Hola</p>
-<h5>{{this.type}}</h5>>
-</ul>
+<div class="wrap">
+  <form method="POST" action="/favourites">
+    <input name="search" id="search" type="text" class="searchTerm" placeholder="What are you search" required>
+    <button type="submit" class="searchButton">
+      {{!-- <i class="fa fa-search"></i> --}}
+    </button>
+  </form>
+</div>
+
+<div>
+  {{#each user.favourites}}
+  <div></div>
+  <div>
+    <ul>
+      <form method="POST" action="/favourites/delete/{{this._id}}">
+        <li>{{this}}</li>
+        <button type="submit" class="hola"></button>
+        <form action=""></form>
+    </ul>
+  </div>
+  {{/each}}
+</div>
+
+{{#each foundCleanPoint}}
+<form method="POST" action="/favourites/{{_id}}">
+  <p>{{ type }}</p>
+  <button type="submit" class="searchButton"></button>
+</form>
 {{/each}}
-{{!-- {{/with}} --}}
