@@ -6,8 +6,7 @@
     <button type="submit" class="searchButton">
       {{!-- <i class="fa fa-search"></i> --}}
     </button>
-</div>
-</form>
+  </form>
 </div>
 
 <div>
@@ -15,7 +14,10 @@
   <div></div>
   <div>
     <ul>
-      <li>{{this}}</li>
+      <form method="POST" action="/favourites/delete/{{this._id}}">
+        <li>{{this}}</li>
+        <button type="submit" class="hola"></button>
+        <form action=""></form>
     </ul>
   </div>
   {{/each}}

@@ -44,7 +44,16 @@ passportRouter.get("/register", (req, res, next) => {
 });
 
 passportRouter.post("/register", async (req, res, next) => {
-  const { name, lastName, address, city, zip, username, password } = req.body;
+  const {
+    name,
+    lastName,
+    address,
+    city,
+    zip,
+    username,
+    password,
+    favourites
+  } = req.body;
   console.log("username");
   const userCreated = await model.findOne({ username });
 
@@ -59,7 +68,7 @@ passportRouter.post("/register", async (req, res, next) => {
       zip,
       username,
       password: hashPassword(password),
-      favourites: " "
+      favourites
     });
   }
   return res.redirect("/");
@@ -111,8 +120,23 @@ passportRouter.post("/info/:id", async (req, res, next) => {
   }
 });
 
+passportRouter.post("/favourites/delete/:id", async (req, res, next) => {
+  const idCp = req.params;
+  const idUser = req.user.id;
+  console.log("aaaaaaaaaaaaaaaaaaaaaaaaa" + idCp);
+  console.log("bbbbbbbbbbbbbbbbbbbbbbbbb" + idUser);
+  try {
+    await model.findByIdAndRemove(idUser.favourites);
+    res.redirect("/favourites");
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 passportRouter.post("/favourites/:id", async (req, res, next) => {
+  console.log("entro por aqui");
   const idCp = req.params.id;
+  console.log(idCp);
   const idUser = req.user.id;
   const user = req.user;
 
@@ -122,6 +146,7 @@ passportRouter.post("/favourites/:id", async (req, res, next) => {
       { $addToSet: { favourites: idCp } },
       { new: true }
     );
+    // .populate("type");
     console.log(user.favourites);
 
     res.redirect("/favourites");
