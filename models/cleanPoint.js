@@ -25,5 +25,5 @@ const cPointSchema = new Schema(
   }
 );
 
-const Temple = mongoose.model("CPoint", cPointSchema);
-module.exports = Temple;
+const Cpoint = mongoose.model("CPoint", cPointSchema);
+module.exports = Cpoint;

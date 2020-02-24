@@ -1,31 +1,36 @@
-<h2>List Favourites clean point</h2>
-{{!-- {{#with user}} --}}
-<div class="wrap">
-  <form method="POST" action="/favourites">
-    <input name="search" id="search" type="text" class="searchTerm" placeholder="What are you search" required>
-    <button type="submit" class="searchButton">
-      {{!-- <i class="fa fa-search"></i> --}}
-    </button>
-  </form>
-</div>
-
 <div>
-  {{#each user.favourites}}
-  <div></div>
-  <div>
+  <div class="title-info">
+    <h2>List Favourites clean point</h2>
+  </div>
+  <div class="wrap">
+    <form method="POST" action="/favourites">
+      <input name="search" id="search" class="form-control mr-sm-8" type="text" placeholder="What are you search"
+        aria-label="Search" required="true">
+      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+
+  <h2>This are the current favourites</h2>
+  {{#each favourites}}
+  <div class="title-info">
     <ul>
       <form method="POST" action="/favourites/delete/{{this._id}}">
-        <li>{{this}}</li>
-        <button type="submit" class="hola"></button>
-        <form action=""></form>
+        <div class="list">
+          <li>{{this.type}}</li>
+        </div>
+        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Delete</button>
     </ul>
   </div>
   {{/each}}
-</div>
 
-{{#each foundCleanPoint}}
-<form method="POST" action="/favourites/{{_id}}">
-  <p>{{ type }}</p>
-  <button type="submit" class="searchButton"></button>
-</form>
-{{/each}}
+  {{#each foundCleanPoint}}
+  <div>
+    <form method="POST" action="/favourites/{{_id}}">
+      <div class="list">
+        <p>{{ type }}</p>
+      </div>
+      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Add</button>
+    </form>
+  </div>
+  {{/each}}
+</div>
