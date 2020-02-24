@@ -20,7 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
         type: "geojson",
         data: {
           type: "FeatureCollection",
-          features: dataContainers
+          features: dataContainers.map(e => ({
+            // type: e.type,
+            // geometry: e.geometry,
+            ...e, // todo lo que tiene mi objeto, +...
+            properties: { ...e.properties, id: e._id }
+          }))
         },
         cluster: true,
         clusterMaxZoom: 14, // Max zoom to cluster points on
@@ -121,9 +126,9 @@ document.addEventListener("DOMContentLoaded", () => {
   map.on("click", "unclustered-point", function(e) {
     var coordinates = e.features[0].geometry.coordinates.slice();
     var name = e.features[0].properties.name;
-    var id = e.features[0]._id;
+    var id = e.features[0].properties.id;
 
-    // console.log(id);
+    console.log(e.features[0]);
 
     // Ensure that if the map is zoomed out such that multiple
     // copies of the feature are visible, the popup appears
@@ -134,8 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     new mapboxgl.Popup()
       .setLngLat(coordinates)
-      // .setHTML(id)
-      .setHTML(name)
+      .setHTML(`${name}, ${id}`)
       .addTo(map);
   });
 
