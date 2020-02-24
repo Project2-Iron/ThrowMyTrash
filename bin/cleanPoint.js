@@ -3,7 +3,7 @@ const CleanPoint = require("../models/cleanPoint");
 const axios = require("axios");
 
 const getCleanPoint = async () => {
-  let cPoints;
+  let cPoints = [];
 
   try {
     const response = await axios({
@@ -12,18 +12,18 @@ const getCleanPoint = async () => {
         "https://datos.madrid.es/egob/catalogo/200284-0-puntos-limpios-fijos.json"
     });
     cPoints = response.data["@graph"];
-    cPoints = cPoints.filter(e => e.location);
-    cPoints = cPoints.map(cPoint => ({
-      type: cPoint.title,
-      lng: cPoint.location.longitude,
-      lat: cPoint.location.latitude,
-      street: cPoint.address["street-address"]
-    }));
-  } catch (error) {
-    console.log(error);
-  }
-
-  try {
+    cPoints = cPoints.map(e => {
+      const cPoint = {};
+      cPoint.type = "Feature";
+      cPoint.geometry = {
+        type: "Point",
+        coordinates: [e.location.longitude, e.location.latitude]
+      };
+      cPoint.properties = {
+        name: e.title
+      };
+      return cPoint;
+    });
     await withDbConnection(async () => {
       const newCleanPoint = await CleanPoint.create(cPoints);
       console.log(`${newCleanPoint.length} Clean Points created`);
