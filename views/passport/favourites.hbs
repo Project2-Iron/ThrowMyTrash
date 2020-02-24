@@ -5,25 +5,23 @@
   <div class="wrap">
     <form method="POST" action="/favourites">
       <input name="search" id="search" class="form-control mr-sm-8" type="text" placeholder="What are you search"
-        aria-label="Search" required>
+        aria-label="Search" required="true">
       <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
 
-  <div>
-    {{#each user.favourites}}
-    <div class="title-info">
-      <ul>
-        <form method="POST" action="/favourites/delete/{{this._id}}">
-          <div class="list">
-            <li>{{this}}</li>
-          </div>
-          <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Delete</button>
-          <form action=""></form>
-      </ul>
-    </div>
-    {{/each}}
+  <h2>This are the current favourites</h2>
+  {{#each favourites}}
+  <div class="title-info">
+    <ul>
+      <form method="POST" action="/favourites/delete/{{this._id}}">
+        <div class="list">
+          <li>{{this.type}}</li>
+        </div>
+        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Delete</button>
+    </ul>
   </div>
+  {{/each}}
 
   {{#each foundCleanPoint}}
   <div>
