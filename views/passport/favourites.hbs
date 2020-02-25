@@ -16,7 +16,7 @@
     <ul>
       <form method="POST" action="/favourites/delete/{{this._id}}">
         <div class="list">
-          <li>{{this.type}}</li>
+          <li>{{this.properties.name}}</li>
         </div>
         <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Delete</button>
     </ul>
@@ -27,7 +27,7 @@
   <div>
     <form method="POST" action="/favourites/{{_id}}">
       <div class="list">
-        <p>{{ type }}</p>
+        <p>{{ properties.name }}</p>
       </div>
       <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Add</button>
     </form>
