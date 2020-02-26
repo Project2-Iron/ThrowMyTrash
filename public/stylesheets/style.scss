@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: #76b852; /* fallback for old browsers */
   font-family: "Roboto", sans-serif;
@@ -7,10 +6,16 @@ body {
 
 li {
   list-style: none;
+  font-size: larger;
 }
 
 a {
   color: #00b7ff;
+  font-size: larger;
+}
+
+p {
+  font-size: larger;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
@@ -39,7 +44,7 @@ a {
   margin: 0 0 15px;
   padding: 15px;
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: 17px;
 }
 .form button {
   font-family: "Roboto", sans-serif;
@@ -50,7 +55,7 @@ a {
   border: 0;
   padding: 15px;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 17px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
@@ -59,7 +64,7 @@ a {
 .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
-  font-size: 12px;
+  font-size: 15px;
 }
 .form .message a {
   color: #4caf50;
@@ -86,4 +91,48 @@ a {
 .list {
   margin-top: 25px;
   margin-bottom: 25px;
+}
+
+.logo {
+  background-image: url("../images/throw.png");
+  width: 495px;
+  height: 90px;
+  border: 1px solid white;
+}
+.card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  background-color: #76b852;
+  background-clip: none;
+  border: 0;
+  border-radius: none;
+}
+
+.title-info {
+  justify-content: center;
+}
+.card-title {
+  margin-bottom: 0;
+}
+h5 {
+  margin: 0;
+}
+.nav-item {
+  font-size: larger;
+}
+
+.navbar-brand {
+  text-decoration: none;
+}
+
+.btn {
+  margin-left: 15px;
+}
+
+.dropdown-menu {
+  right: 0;
+  left: unset;
 }

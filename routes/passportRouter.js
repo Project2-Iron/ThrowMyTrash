@@ -32,7 +32,7 @@ passportRouter.get("/favourites", (req, res, next) => {
 
 passportRouter.post("/favourites", (req, res, next) => {
   const search = req.body.search;
-  Cpoint.find({ type: { $regex: search, $options: "i" } })
+  Cpoint.find({ "properties.name": { $regex: search, $options: "i" } })
     //.populate("review")
     .then(foundCleanPoint => {
       console.log(foundCleanPoint);
