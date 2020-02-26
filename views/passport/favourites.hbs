@@ -1,36 +1,51 @@
 <div>
   <div class="title-info">
-    <h2>List Favourites clean point</h2>
+    <h2>This are the current favourites</h2>
   </div>
   <div class="wrap">
     <form method="POST" action="/favourites">
-      <input name="search" id="search" class="form-control mr-sm-8" type="text" placeholder="What are you search"
+      <input name="search" id="search" class="form-control mr-sm-8" type="text" placeholder="Search for your district"
         aria-label="Search" required="true">
       <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
 
-  <h2>This are the current favourites</h2>
   {{#each favourites}}
   <div class="title-info">
-    <ul>
-      <form method="POST" action="/favourites/delete/{{this._id}}">
-        <div class="list">
-          <li>{{this.properties.name}}</li>
+    <form method="POST" action="/favourites/delete/{{this._id}}">
+      <div class="row title-info">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><b>{{ this.properties.name }}</b></h5>
+              <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Delete</button>
+            </div>
+          </div>
         </div>
-        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Delete</button>
-    </ul>
-  </div>
-  {{/each}}
-
-  {{#each foundCleanPoint}}
-  <div>
-    <form method="POST" action="/favourites/{{_id}}">
-      <div class="list">
-        <p>{{ properties.name }}</p>
       </div>
-      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Add</button>
     </form>
   </div>
   {{/each}}
+
+  {{#if foundCleanPoint}}
+  <div class="title-info">
+    <h2>List of clean points</h2>
+  </div>
+  {{#each foundCleanPoint}}
+  <div class="title-info">
+    <form method="POST" action="/favourites/{{_id}}">
+      <div class="row title-info">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><b>{{ properties.name }}</b></h5>
+              <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  {{/each}}
+  {{/if}}
 </div>
