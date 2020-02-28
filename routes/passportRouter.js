@@ -13,21 +13,11 @@ passportRouter.get("/favourites", (req, res, next) => {
     .populate("favourites")
     .then(user => {
       console.log(user);
-      return res.render("passport/favourites", { favourites: user.favourites });
+      return res.render("passport/favourites", {
+        favourites: user.favourites
+      });
     })
     .catch(error => console.log(error));
-
-  // Cpoint.find()
-  //   .then(element => {
-  //     data = {
-  //       user: req.user,
-  //       element
-  //     };
-  //     res.render("passport/favourites", { data });
-  //   })
-  //   .catch(error => {
-  //     console.log(error);
-  //   });
 });
 
 passportRouter.post("/favourites", (req, res, next) => {
@@ -55,10 +45,7 @@ passportRouter.post("/favourites/:id", async (req, res, next) => {
       { $addToSet: { favourites: cleanPointId } },
       { new: true }
     );
-    // Cpoint.populate(user, { path: "favourites" });
-    // console.log(user.favourites);
-
-    res.redirect("/favourites");
+    return res.redirect("/favourites");
   } catch (error) {
     console.log(error);
     next();
@@ -79,11 +66,6 @@ passportRouter.post("/favourites/delete/:id", async (req, res, next) => {
       res.redirect("/favourites");
     })
     .catch(error => console.log(error));
-  //   .then(u)
-  //   res.redirect("/favourites");
-  // } catch (error) {
-  //   console.log(error);
-  // }
 });
 
 passportRouter.get("/about", (req, res, next) => {
@@ -105,11 +87,14 @@ passportRouter.post("/register", async (req, res, next) => {
     password,
     favourites
   } = req.body;
-  console.log("username");
+  console.log(username);
   const userCreated = await User.findOne({ username });
 
   if (userCreated) {
-    return res.redirect("/login");
+    console.log("user already exists");
+    return res.render("passport/register", {
+      errorMessage: "User already exists"
+    });
   } else {
     await User.create({
       name,
@@ -134,6 +119,7 @@ passportRouter.post(
   passport.authenticate("local", {
     successRedirect: "/page-personal",
     failureRedirect: "/register"
+    // failureFlash: "true"
   })
 );
 

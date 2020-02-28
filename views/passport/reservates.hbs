@@ -1,0 +1,74 @@
+<div>
+  <div class="topOfReservates">
+    <div class="title-info ">
+      <h2><b> Collection Requirements</b></h2>
+    </div>
+    <div>
+      <ul>
+        <li> - Provide personal data.</li>
+        <li> - Telephone.</li>
+        <li> - Schedule to locate the person interested. He will be contacted mainly in the morning.</li>
+        <li> - List of items to be removed. Only those furniture and fixtures will be removed in an amount less than 3m3
+          and a maximum of 6 elements (for example: 1 mattress +1 refrigerator +1 module of a kitchen cabinet and 3
+          doors), furniture or fixtures will not be removed to companies or industries.</li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div class="box">
+      {{#if dates}}
+      <div class="titleOfReservates">
+        <h2><b>Scheduled pickups</b></h2>
+      </div>
+      {{#each dates}}
+      <div>
+        <form method="POST" action="/reservates/delete/{{this}}">
+          <div>
+            <div class="elementOfReservates">
+              <h5>{{this}}</h5>
+              <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Delete</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      {{/each}}
+      {{/if}}
+    </div>
+
+    <div>
+      <div class="formOfReservate">
+        <div class="title-info">
+          <h2><b>Make your pickup</b></h2>
+        </div>
+        <form method="POST" class="login-form" action="/reservates">
+          <div>
+            <label for="firstName"></label>
+            <input type="text" id="firstName" placeholder="Type of waste" required="true" name="typeOfWaste">
+          </div>
+          <div>
+            <label for="lastName"></label>
+            <input type="text" id="lastName" placeholder="pick up address" required="true" name="direction">
+          </div>
+          <div>
+            <label for="lastName"></label>
+            <input type="text" id="lastName" placeholder="Phone" required="true" name="phone">
+          </div>
+          <div>
+            <label for="lastName"></label>
+            <input name="date" id="today" type="date" required="true">
+          </div>
+          <div>
+            <label for="lastName"></label>
+            <input list="Time" name="time" required="true">
+            <datalist id="Time">
+              {{#each reservate.time}}
+              <option value="{{this}}"></option>
+              {{/each}}
+            </datalist>
+          </div>
+          <button type="submit">Add reservate</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

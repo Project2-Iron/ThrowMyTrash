@@ -3,7 +3,11 @@
   <div class="login-page">
     <div class="form">
       <form method="POST" class="login-form">
-        {{!-- <form method="POST" class="login-form" action="/login"> --}}
+        {{#if errorMessage}}
+        <div class="text-right">
+          <span class="p-3 border border-danger error-msg">{{errorMessage}}</span>
+        </div>
+        {{/if}}
         <div>
           <label for="firstName"></label>
           <input type="text" id="firstName" placeholder="First Name" required="true" name="name">
