@@ -45,10 +45,7 @@ passportRouter.post("/favourites/:id", async (req, res, next) => {
       { $addToSet: { favourites: cleanPointId } },
       { new: true }
     );
-    // Cpoint.populate(user, { path: "favourites" });
-    // console.log(user.favourites);
-
-    res.redirect("/favourites");
+    return res.redirect("/favourites");
   } catch (error) {
     console.log(error);
     next();
@@ -90,11 +87,14 @@ passportRouter.post("/register", async (req, res, next) => {
     password,
     favourites
   } = req.body;
-  console.log("username");
+  console.log(username);
   const userCreated = await User.findOne({ username });
 
   if (userCreated) {
-    return res.redirect("/login");
+    console.log("user already exists");
+    return res.render("passport/register", {
+      errorMessage: "User already exists"
+    });
   } else {
     await User.create({
       name,
@@ -118,7 +118,8 @@ passportRouter.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/page-personal",
-    failureRedirect: "/register"
+    failureRedirect: "/login"
+    // failureFlash: "true"
   })
 );
 

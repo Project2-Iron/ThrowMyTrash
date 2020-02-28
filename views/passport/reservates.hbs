@@ -1,8 +1,8 @@
-{{#if data}}
+{{#if dates}}
 <div class="title-info">
   <h2>List Of Reservates</h2>
 </div>
-{{#each data}}
+{{#each dates}}
 <div class="title-info">
   <form method="POST" action="/reservates/delete/{{this}}">
     <ul>

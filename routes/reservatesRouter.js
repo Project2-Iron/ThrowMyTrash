@@ -7,15 +7,16 @@ const Cpoint = require("../models/cleanPoint");
 
 passportRouter.get("/reservates", (req, res, next) => {
   Reservates.findOne().then(reservate => {
-    console.log(reservate);
+    console.log("esta es la reserva" + reservate);
+    console.log("estes es el user" + req.user.dates);
     const dates = req.user.dates;
     console.log(dates);
-    User.findOne().then(date => {
-      console.log("eeeeeeeeee" + date.dates);
-      const data = date.dates;
-      console.log("ooooooooooooo" + data);
-      return res.render("passport/reservates", { reservate, data });
-    });
+    // User.findOne().then(date => {
+    //   console.log("eeeeeeeeee" + dates);
+    //   const data = date.dates;
+    //   console.log("ooooooooooooo" + data);
+    return res.render("passport/reservates", { reservate, dates });
+    //});
   });
 });
 

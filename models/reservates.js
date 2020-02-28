@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const ReservatersSchema = new Schema(
   {
     date: Number,
-    time: Array
+    time: { type: Array }
   },
   {
     timestamps: true
