@@ -1,0 +1,44 @@
+{{#if data}}
+<div class="title-info">
+  <h2>List Of Reservates</h2>
+</div>
+{{#each data}}
+<div class="title-info">
+  <form method="POST" action="/reservates/delete/{{this}}">
+    <ul>
+      <li><b>{{this}}</b></li>
+      <button type="submit">Delete</button>
+    </ul>
+  </form>
+</div>
+{{/each}}
+{{/if}}
+<div>
+  <div class="login-page">
+    <div class="form">
+      <form method="POST" class="login-form" action="/reservates">
+        <div>
+          <label for="firstName"></label>
+          <input type="text" id="firstName" placeholder="Type of waste" required="true" name="typeOfWaste">
+        </div>
+        <div>
+          <label for="lastName"></label>
+          <input type="text" id="lastName" placeholder="Direction" required="true" name="direction">
+        </div>
+        <div>
+          <label for="lastName"></label>
+          <input name="date" id="today" class="form-control mr-sm-8" type="date" required="true">
+        </div>
+        <div>
+          <input list="Time" name="time">
+          <datalist id="Time">
+            {{#each reservate.time}}
+            <option value="{{this}}"></option>
+            {{/each}}
+          </datalist>
+        </div>
+        <button type="submit">Add reservate</button>
+      </form>
+    </div>
+  </div>
+</div>

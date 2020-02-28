@@ -13,21 +13,11 @@ passportRouter.get("/favourites", (req, res, next) => {
     .populate("favourites")
     .then(user => {
       console.log(user);
-      return res.render("passport/favourites", { favourites: user.favourites });
+      return res.render("passport/favourites", {
+        favourites: user.favourites
+      });
     })
     .catch(error => console.log(error));
-
-  // Cpoint.find()
-  //   .then(element => {
-  //     data = {
-  //       user: req.user,
-  //       element
-  //     };
-  //     res.render("passport/favourites", { data });
-  //   })
-  //   .catch(error => {
-  //     console.log(error);
-  //   });
 });
 
 passportRouter.post("/favourites", (req, res, next) => {
@@ -79,11 +69,6 @@ passportRouter.post("/favourites/delete/:id", async (req, res, next) => {
       res.redirect("/favourites");
     })
     .catch(error => console.log(error));
-  //   .then(u)
-  //   res.redirect("/favourites");
-  // } catch (error) {
-  //   console.log(error);
-  // }
 });
 
 passportRouter.get("/about", (req, res, next) => {
