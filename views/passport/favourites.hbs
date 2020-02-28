@@ -34,11 +34,6 @@
   {{#each foundCleanPoint}}
   <div class="title-info">
     <form method="POST" action="/favourites/{{_id}}">
-      {{#if errorMessage}}
-      <div class="text-right">
-        <span class="p-3 border border-danger error-msg">{{errorMessage}}</span>
-      </div>
-      {{/if}}
       <div class="row title-info">
         <div class="col-sm-6">
           <div class="card">

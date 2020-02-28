@@ -118,7 +118,7 @@ passportRouter.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/page-personal",
-    failureRedirect: "/login"
+    failureRedirect: "/register"
     // failureFlash: "true"
   })
 );
