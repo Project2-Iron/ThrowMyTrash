@@ -18,14 +18,14 @@
     <div class="box">
       {{#if dates}}
       <div class="titleOfReservates">
-        <h2>List Of Reservates</h2>
+        <h2><b>Scheduled pickups</b></h2>
       </div>
       {{#each dates}}
       <div>
         <form method="POST" action="/reservates/delete/{{this}}">
           <div>
             <div class="elementOfReservates">
-              <h5><b>{{this}}</b></h5>
+              <h5>{{this}}</h5>
               <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Delete</button>
             </div>
           </div>
@@ -38,7 +38,7 @@
     <div>
       <div class="formOfReservate">
         <div class="title-info">
-          <h2>Realiza tu recogida</h2>
+          <h2><b>Make your pickup</b></h2>
         </div>
         <form method="POST" class="login-form" action="/reservates">
           <div>
