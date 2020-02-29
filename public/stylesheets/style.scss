@@ -151,7 +151,7 @@ a:hover {
 
 .listings .item .title {
   display: block;
-  color: #00853e;
+  color: #424242;
   font-weight: 700;
 }
 
@@ -161,7 +161,7 @@ a:hover {
 
 .listings .item.active .title,
 .listings .item .title:hover {
-  color: #8cc63f;
+  color: #000000;
 }
 
 .listings .item.active {
@@ -184,6 +184,15 @@ a:hover {
   border-radius: 0;
 }
 
+.markercp {
+  border: none;
+  cursor: pointer;
+  height: 56px;
+  width: 56px;
+  background-image: url(../images/cpmarker.png);
+  background-color: rgba(0, 0, 0, 0);
+}
+
 .clearfix {
   display: block;
 }
@@ -200,7 +209,7 @@ a:hover {
   display: flex;
   position: relative;
   width: 100%;
-  height: 80vh;
+  height: 85vh;
 }
 
 .hide {
@@ -334,20 +343,21 @@ a:hover {
 }
 
 /* Marker tweaks */
+.mapboxgl-popup {
+  padding-bottom: 50px;
+}
+
 .mapboxgl-popup-close-button {
   display: none;
 }
-
 .mapboxgl-popup-content {
   font: 400 15px/22px "Source Sans Pro", "Helvetica Neue", Sans-serif;
   padding: 0;
   width: 180px;
 }
-
 .mapboxgl-popup-content-wrapper {
   padding: 1%;
 }
-
 .mapboxgl-popup-content h3 {
   background: #91c949;
   color: #fff;
@@ -362,7 +372,7 @@ a:hover {
 .mapboxgl-popup-content h4 {
   margin: 0;
   display: block;
-  padding: 10px;
+  padding: 10px 10px 10px 10px;
   font-weight: 400;
 }
 
@@ -385,6 +395,14 @@ a:hover {
     width: 50%;
     margin-left: 25%;
   }
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+h4 {
+  font-size: 0.7rem;
 }
 
 .title-info {
