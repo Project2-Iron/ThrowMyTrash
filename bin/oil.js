@@ -17,8 +17,8 @@ const oil = data.map(e => {
   oil.geometry = {
     type: "Point",
     coordinates: [
-      parseFloat(process(e.LATITUD)),
-      parseFloat(process(e.LONGITUD))
+      parseFloat(process(e.LONGITUD)),
+      parseFloat(process(e.LATITUD))
     ]
   };
   oil.properties = {
