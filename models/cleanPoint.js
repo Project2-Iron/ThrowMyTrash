@@ -9,7 +9,8 @@ const cPointSchema = new Schema(
       coordinates: { type: [Number], required: true }
     },
     properties: {
-      name: { type: String }
+      name: { type: String },
+      address: { type: String }
     }
   },
   {
@@ -25,5 +26,5 @@ const cPointSchema = new Schema(
   }
 );
 
-const Temple = mongoose.model("CPoint", cPointSchema);
-module.exports = Temple;
+const CPoint = mongoose.model("CPoint", cPointSchema);
+module.exports = CPoint;

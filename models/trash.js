@@ -9,7 +9,8 @@ const trashSchema = new Schema(
       coordinates: { type: [Number], required: true }
     },
     properties: {
-      name: { type: String }
+      name: { type: String },
+      address: { type: String }
     }
   },
   {

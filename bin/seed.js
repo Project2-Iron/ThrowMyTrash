@@ -19,7 +19,8 @@ const containers = data.map(e => {
     coordinates: [e.LONGITUD, e.LATITUD]
   };
   container.properties = {
-    name: e["Tipo Contenedor"]
+    name: e["Tipo Contenedor"],
+    address: e.NOMBRE
   };
   return container;
 });

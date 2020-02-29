@@ -2,7 +2,11 @@ mapboxgl.accessToken =
   "pk.eyJ1IjoidGhyb3dteXRyYXNoIiwiYSI6ImNrNnF1MjN6NDAwZmYzZ28yeDNvcWhjZjEifQ.UkRO4CCllNp_uI6CR-gqNw";
 
 window.trashApi = axios.create({
-  baseURL: "http://localhost:3000/"
+  baseURL: "http://localhost:3000"
+});
+
+window.cpointsApi = axios.create({
+  baseURL: "http://localhost:3000"
 });
 
 window.setMap = (center, zoom = 10) => {
@@ -13,6 +17,14 @@ window.setMap = (center, zoom = 10) => {
     zoom
   });
   map.addControl(new mapboxgl.NavigationControl());
+  map.addControl(
+    new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      trackUserLocation: true
+    })
+  );
 
   return map;
 };
