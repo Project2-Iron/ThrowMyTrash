@@ -9,6 +9,18 @@ window.cpointsApi = axios.create({
   baseURL: "http://localhost:3000"
 });
 
+window.batteriesApi = axios.create({
+  baseURL: "http://localhost:3000"
+});
+
+window.clothesApi = axios.create({
+  baseURL: "http://localhost:3000"
+});
+
+window.oilApi = axios.create({
+  baseURL: "http://localhost:3000"
+});
+
 window.setMap = (center, zoom = 10) => {
   const map = new mapboxgl.Map({
     container: "map",
