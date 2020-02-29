@@ -11,7 +11,27 @@ window.cpointsApi = axios.create({
 
 window.setMap = (center, zoom = 10) => {
   const map = new mapboxgl.Map({
-    container: "map",
+    container: "maptrash",
+    style: "mapbox://styles/mapbox/streets-v11",
+    center,
+    zoom
+  });
+  map.addControl(new mapboxgl.NavigationControl());
+  map.addControl(
+    new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      trackUserLocation: true
+    })
+  );
+
+  return map;
+};
+
+window.setMap = (center, zoom = 10) => {
+  const map = new mapboxgl.Map({
+    container: "mapcpoints",
     style: "mapbox://styles/mapbox/streets-v11",
     center,
     zoom
