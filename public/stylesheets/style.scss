@@ -380,12 +380,12 @@ a:hover {
 
 .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
   border-bottom-color: #91c949;
-.form-control {
-  display: unset;
-  width: 50%;
-  margin-left: 25%;
+  .form-control {
+    display: unset;
+    width: 50%;
+    margin-left: 25%;
+  }
 }
-
 .title-info {
   text-align: center;
   margin: 15px;
