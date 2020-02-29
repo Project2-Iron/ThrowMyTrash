@@ -18,14 +18,8 @@ passportRouter.get("/reservates", (req, res, next) => {
   User.findOne({ _id })
     .populate("dates")
     .then(user => {
-      // const data = reservate.dates;
-      // console.log(data);
-      // const dates = req.user.dates;
-      // console.log("eeeeeeeee" + dates);
-      console.log(user.dates);
-      console.log("estamos viendo esto ", user.dates);
-      return res.render("passport/reservates", {});
-      //});
+      const data = user.dates;
+      return res.render("passport/reservates", { data });
     });
 });
 
@@ -51,10 +45,11 @@ passportRouter.post("/reservates", (req, res, next) => {
   return res.redirect("/reservates");
 });
 
-passportRouter.post("/reservates/delete/:this", async (req, res, next) => {
+passportRouter.post("/reservates/delete/:id", async (req, res, next) => {
   console.log("holiiii");
   const user = req.user;
-  const cleanPointId = req.params.this;
+  const cleanPointId = req.params.id;
+  console.log(cleanPointId);
   try {
     await User.updateOne(
       user,
