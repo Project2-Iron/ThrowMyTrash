@@ -151,7 +151,7 @@ a:hover {
 
 .listings .item .title {
   display: block;
-  color: #00853e;
+  color: #424242;
   font-weight: 700;
 }
 
@@ -161,7 +161,7 @@ a:hover {
 
 .listings .item.active .title,
 .listings .item .title:hover {
-  color: #8cc63f;
+  color: #000000;
 }
 
 .listings .item.active {
@@ -184,12 +184,12 @@ a:hover {
   border-radius: 0;
 }
 
-.marker {
+.markercp {
   border: none;
   cursor: pointer;
   height: 56px;
   width: 56px;
-  // background-image: url(marker.png);
+  background-image: url(../images/cpmarker.png);
   background-color: rgba(0, 0, 0, 0);
 }
 
@@ -209,7 +209,7 @@ a:hover {
   display: flex;
   position: relative;
   width: 100%;
-  height: 80vh;
+  height: 85vh;
 }
 
 .hide {
