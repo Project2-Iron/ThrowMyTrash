@@ -25,6 +25,5 @@ window.setMap = (center, zoom = 10) => {
       trackUserLocation: true
     })
   );
-
   return map;
 };

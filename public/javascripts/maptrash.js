@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+  document.getElementsByClassName("wrapper")[0].classList.add("hide");
+  document.getElementsByClassName("lds-roller")[0].classList.add("show");
+
   // the mapbox map
   const map = setMap();
 
@@ -17,6 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
     trashApi.get("/trash").then(res => {
       const dataContainers = res.data;
       console.log(dataContainers);
+
+      document.getElementsByClassName("wrapper")[0].classList.remove("hide");
+      document.getElementsByClassName("lds-roller")[0].style.display = "none";
 
       map.addSource("containers", {
         type: "geojson",

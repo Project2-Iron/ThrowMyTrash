@@ -270,25 +270,25 @@ document.addEventListener("DOMContentLoaded", () => {
       map.addControl(geocoder, "top-left");
     });
 
-    // map.on("click", "unclustered-point", function(e) {
-    //   var coordinates = e.features[0].geometry.coordinates.slice();
-    //   var name = e.features[0].properties.name;
-    //   var id = e.features[0].properties.id;
+    map.on("click", "unclustered-point", function(e) {
+      var coordinates = e.features[0].geometry.coordinates.slice();
+      var name = e.features[0].properties.name;
+      var id = e.features[0].properties.id;
 
-    //   // console.log(e.features[0]);
+      // console.log(e.features[0]);
 
-    //   // Ensure that if the map is zoomed out such that multiple
-    //   // copies of the feature are visible, the popup appears
-    //   // over the copy being pointed to.
-    //   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-    //     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-    //   }
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
 
-    //   new mapboxgl.Popup()
-    //     .setLngLat(coordinates)
-    //     .setHTML(`${name}`)
-    //     .addTo(map);
-    // });
+      new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(`${name}`)
+        .addTo(map);
+    });
 
     // Change the cursor to a pointer when the mouse is over the places layer.
     map.on("mouseenter", "clusters", function() {
