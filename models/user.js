@@ -10,7 +10,11 @@ const userSchema = new Schema(
     zip: Number,
     username: String,
     password: String,
-    favourites: Array
+    favourites: [{ type: Schema.ObjectId, ref: "CPoint" }],
+    //para añadir las coordenadas
+    coordinates: { type: [Number], required: true },
+    //para añadir las resesrvas
+    dates: [{ type: String }]
   },
   {
     timestamps: true

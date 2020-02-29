@@ -1,29 +1,28 @@
 const express = require("express");
 const passportRouter = express.Router();
 const ensureLogin = require("connect-ensure-login");
-const model = require("../models/user");
+const User = require("../models/user");
 const passport = require("passport");
 const { hashPassword, checkHashed } = require("../lib/hashing");
 const Cpoint = require("../models/cleanPoint");
 
 //search
 passportRouter.get("/favourites", (req, res, next) => {
-  Cpoint.find()
-    .then(element => {
-      data = {
-        user: req.user,
-        element
-      };
-      res.render("passport/favourites", { data });
+  const _id = req.user.id;
+  User.findOne({ _id })
+    .populate("favourites")
+    .then(user => {
+      console.log(user);
+      return res.render("passport/favourites", {
+        favourites: user.favourites
+      });
     })
-    .catch(error => {
-      console.log(error);
-    });
+    .catch(error => console.log(error));
 });
 
 passportRouter.post("/favourites", (req, res, next) => {
   const search = req.body.search;
-  Cpoint.find({ type: { $regex: search, $options: "i" } })
+  Cpoint.find({ "properties.name": { $regex: search, $options: "i" } })
     //.populate("review")
     .then(foundCleanPoint => {
       console.log(foundCleanPoint);
@@ -33,6 +32,40 @@ passportRouter.post("/favourites", (req, res, next) => {
       console.log(error);
       next();
     });
+});
+
+passportRouter.post("/favourites/:id", async (req, res, next) => {
+  console.log("entro por aqui");
+  const cleanPointId = req.params.id;
+  const user = req.user;
+
+  try {
+    await User.findByIdAndUpdate(
+      user,
+      { $addToSet: { favourites: cleanPointId } },
+      { new: true }
+    );
+    return res.redirect("/favourites");
+  } catch (error) {
+    console.log(error);
+    next();
+  }
+});
+
+passportRouter.post("/favourites/delete/:id", async (req, res, next) => {
+  const cleanPointId = req.params.id;
+  const id = req.user.id;
+  console.log("hey!");
+
+  User.updateOne(
+    { _id: id },
+    { $pull: { favourites: cleanPointId } },
+    { safe: true, multi: true }
+  )
+    .then(() => {
+      res.redirect("/favourites");
+    })
+    .catch(error => console.log(error));
 });
 
 passportRouter.get("/about", (req, res, next) => {
@@ -54,13 +87,16 @@ passportRouter.post("/register", async (req, res, next) => {
     password,
     favourites
   } = req.body;
-  console.log("username");
-  const userCreated = await model.findOne({ username });
+  console.log(username);
+  const userCreated = await User.findOne({ username });
 
   if (userCreated) {
-    return res.redirect("/login");
+    console.log("user already exists");
+    return res.render("passport/register", {
+      errorMessage: "User already exists"
+    });
   } else {
-    await model.create({
+    await User.create({
       name,
       lastName,
       address,
@@ -83,6 +119,7 @@ passportRouter.post(
   passport.authenticate("local", {
     successRedirect: "/page-personal",
     failureRedirect: "/register"
+    // failureFlash: "true"
   })
 );
 
@@ -107,49 +144,13 @@ passportRouter.post("/info/:id", async (req, res, next) => {
   const { id } = req.params;
   const { name, lastName, address, password } = req.body;
   try {
-    await model.findByIdAndUpdate(id, {
+    await User.findByIdAndUpdate(id, {
       name,
       lastName,
       address,
       password: hashPassword(password)
     });
     res.redirect("/info");
-  } catch (error) {
-    console.log(error);
-    next();
-  }
-});
-
-passportRouter.post("/favourites/delete/:id", async (req, res, next) => {
-  const idCp = req.params;
-  const idUser = req.user.id;
-  console.log("aaaaaaaaaaaaaaaaaaaaaaaaa" + idCp);
-  console.log("bbbbbbbbbbbbbbbbbbbbbbbbb" + idUser);
-  try {
-    await model.findByIdAndRemove(idUser.favourites);
-    res.redirect("/favourites");
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-passportRouter.post("/favourites/:id", async (req, res, next) => {
-  console.log("entro por aqui");
-  const idCp = req.params.id;
-  console.log(idCp);
-  const idUser = req.user.id;
-  const user = req.user;
-
-  try {
-    await model.findByIdAndUpdate(
-      idUser,
-      { $addToSet: { favourites: idCp } },
-      { new: true }
-    );
-    // .populate("type");
-    console.log(user.favourites);
-
-    res.redirect("/favourites");
   } catch (error) {
     console.log(error);
     next();

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">ThrowMyTrash!</a>
+  <a class="navbar-brand" href="/"><b>Throw My Trash!!</b></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -9,21 +9,18 @@
       {{#if user}}
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-          aria-expanded="false">{{user.name}}</a>
+          aria-expanded="false"><b>{{user.name}}</b></a>
         <div class="dropdown-menu">
           <a class="dropdown-item" href="/page-personal">Profile</a>
           <a class="dropdown-item" href="/favourites">Favourites</a>
+          <a class="dropdown-item" href="/reservates">Reservates</a>
           <a class="dropdown-item" href="/info">Change info</a>
           <div role="separator" class="dropdown-divider"></div>
           <a class="dropdown-item" href="/logout">Logout</a>
         </div>
       </li>
-      {{!-- <li class="nav-item active">
-        <a class="nav-link" href="/profile">Profile<span class="sr-only">(current)</span></a>
-      </li> --}}
-
+      {{else}}
       <li class="nav-item">
-        {{else}}
         <a class="nav-link" href="/login">Login</a>
       </li>
       <li class="nav-item">
@@ -33,22 +30,6 @@
         <a class="nav-link" href="/about">About</a>
       </li>
       {{/if}}
-      {{!-- {{#if user}}
-      <li class="nav-item">
-        <a class="nav-link" href="/logout">Logout</a>
-      </li>
-      {{/if}} --}}
     </ul>
   </div>
 </nav>
-
-{{!-- <li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-    aria-expanded="false">{{user.name}}</a>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#one">one</a>
-    <a class="dropdown-item" href="#two">two</a>
-    <div role="separator" class="dropdown-divider"></div>
-    <a class="dropdown-item" href="/logout">Logout</a>
-  </div>
-</li> --}}

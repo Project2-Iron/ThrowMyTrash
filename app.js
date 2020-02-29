@@ -79,4 +79,7 @@ app.use("/", index);
 const passportRouter = require("./routes/passportRouter");
 app.use("/", passportRouter);
 
+const reservatesRouter = require("./routes/reservatesRouter");
+app.use("/", reservatesRouter);
+
 module.exports = app;
