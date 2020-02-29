@@ -14,8 +14,9 @@ const Cpoint = require("../models/cleanPoint");
 // });
 
 passportRouter.get("/reservates", (req, res, next) => {
-  Reservates.findOne()
-    .populate("reservates")
+  console.log(req.user._id);
+  User.findOne(req.user._id)
+    .populate("dates")
     .then(reservate => {
       const dates = req.user.dates;
       console.log("eeeeeeeee" + dates);
@@ -42,8 +43,7 @@ passportRouter.post("/reservates", (req, res, next) => {
       { new: true }
     )
   );
-  console.log(newReservate._id);
-  console.log(reservate);
+
   return res.redirect("/reservates");
 });
 

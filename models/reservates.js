@@ -24,5 +24,5 @@ const ReservatersSchema = new Schema(
 //   }
 // );
 
-const Reservate = mongoose.model("reservate", ReservatersSchema);
+const Reservate = mongoose.model("Reservate", ReservatersSchema);
 module.exports = Reservate;
