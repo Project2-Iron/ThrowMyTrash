@@ -15,8 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   map.on("load", function() {
-    //MAPA DE LOS CUBOS DE BASURA
-
     trashApi.get("/trash").then(res => {
       const dataContainers = res.data;
       console.log(dataContainers);
@@ -144,9 +142,19 @@ document.addEventListener("DOMContentLoaded", () => {
       coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
     }
 
-    new mapboxgl.Popup()
-      .setLngLat(coordinates)
-      .setHTML(`${name}`)
+    var popUps = document.getElementsByClassName("mapboxgl-popup");
+    if (popUps[0]) popUps[0].remove();
+
+    new mapboxgl.Popup({ closeOnClick: true })
+      .setLngLat(e.features[0].geometry.coordinates)
+      .setHTML(
+        "<h3>" +
+          e.features[0].properties.name +
+          "</h3>" +
+          "<h4>" +
+          e.features[0].properties.address +
+          "</h4>"
+      )
       .addTo(map);
   });
 
@@ -169,6 +177,4 @@ document.addEventListener("DOMContentLoaded", () => {
   map.on("mouseleave", "unclustered-point", function() {
     map.getCanvas().style.cursor = "";
   });
-
-  //MAPA DE LOS PUNTOS LIMPIOS
 });

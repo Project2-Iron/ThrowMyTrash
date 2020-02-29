@@ -17,8 +17,8 @@ const clothes = data.map(e => {
   clothes.geometry = {
     type: "Point",
     coordinates: [
-      parseFloat(process(e.LONGITUD)),
-      parseFloat(process(e.LATITUD))
+      parseFloat(process(e.LATITUD)),
+      parseFloat(process(e.LONGITUD))
     ]
   };
   clothes.properties = {

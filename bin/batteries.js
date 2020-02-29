@@ -3,9 +3,12 @@ const data = require("../data/pilas.json");
 const batteriesModel = require("../models/batteries");
 
 function process(str) {
-  return str.replace(/^([^.]*\.)(.*)$/, function(a, b, c) {
-    return b + c.replace(/\./g, "");
-  });
+  return (
+    str +
+    "".replace(/^([^.]*\.)(.*)$/, function(a, b, c) {
+      return b + c.replace(/\./g, "");
+    })
+  );
 }
 
 const batteries = data.map(e => {
