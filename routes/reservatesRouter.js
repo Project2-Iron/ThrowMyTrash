@@ -5,42 +5,46 @@ const passport = require("passport");
 const Reservates = require("../models/reservates");
 const Cpoint = require("../models/cleanPoint");
 
+// passportRouter.get("/reservates", (req, res, next) => {
+//   Reservates.findOne().then(reservate => {
+//     const dates = req.user.dates;
+//     return res.render("passport/reservates", { reservate, dates });
+//     //});
+//   });
+// });
+
 passportRouter.get("/reservates", (req, res, next) => {
-  Reservates.findOne().then(reservate => {
-    console.log("esta es la reserva" + reservate);
-    console.log("estes es el user" + req.user.dates);
-    const dates = req.user.dates;
-    console.log(dates);
-    // User.findOne().then(date => {
-    //   console.log("eeeeeeeeee" + dates);
-    //   const data = date.dates;
-    //   console.log("ooooooooooooo" + data);
-    return res.render("passport/reservates", { reservate, dates });
-    //});
-  });
+  Reservates.findOne()
+    .populate("reservates")
+    .then(reservate => {
+      const dates = req.user.dates;
+      console.log("eeeeeeeee" + dates);
+      return res.render("passport/reservates", { reservate, dates });
+      //});
+    });
 });
 
-passportRouter.post("/reservates", async (req, res, next) => {
-  const { tipeOfWaste, direction, date, time } = req.body;
-  const user = req.user;
-  console.log(tipeOfWaste);
-  console.log(direction);
-  console.log(date);
-  console.log(time);
-  console.log(user);
+passportRouter.post("/reservates", (req, res, next) => {
+  const { typeOfWaste, direction, phone, date, time } = req.body;
+  const reservate = req.params.id;
   const data = date.concat(", ", time);
 
-  try {
-    await User.findByIdAndUpdate(
-      user,
-      { $addToSet: { dates: data } },
+  const newReservate = {
+    date: data,
+    phone: phone,
+    typeOfWaste: typeOfWaste,
+    direction: direction
+  };
+  Reservates.create(newReservate).then(result =>
+    User.findByIdAndUpdate(
+      req.user._id,
+      { $addToSet: { dates: result._id } },
       { new: true }
-    );
-    return res.redirect("/reservates");
-  } catch (error) {
-    console.log(error);
-    next();
-  }
+    )
+  );
+  console.log(newReservate._id);
+  console.log(reservate);
+  return res.redirect("/reservates");
 });
 
 passportRouter.post("/reservates/delete/:this", async (req, res, next) => {

@@ -390,6 +390,11 @@ a:hover {
 
 .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
   border-bottom-color: #91c949;
+  .form-control {
+    display: unset;
+    width: 50%;
+    margin-left: 25%;
+  }
 }
 
 h3 {
@@ -455,10 +460,8 @@ h5 {
 }
 
 .box {
-  margin-top: 5%;
   width: 25%;
   background-color: white;
-  margin-left: 10%;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .topOfReservates {
@@ -491,7 +494,6 @@ h5 {
   background: #ffffff;
   max-width: 360px;
   padding: 45px;
-  margin-left: 70%;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
@@ -519,4 +521,18 @@ h5 {
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
+}
+
+.searchNav {
+  display: flex;
+  margin-left: 5%;
+  width: 90%;
+}
+
+.listReservates {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 80%;
+  margin: 3% auto;
 }

@@ -2,11 +2,13 @@ mapboxgl.accessToken =
   "pk.eyJ1IjoidGhyb3dteXRyYXNoIiwiYSI6ImNrNnF1MjN6NDAwZmYzZ28yeDNvcWhjZjEifQ.UkRO4CCllNp_uI6CR-gqNw";
 
 window.trashApi = axios.create({
-  baseURL: "http://localhost:3000"
+  // baseURL: "https://throw-my-trash.herokuapp.com/"
+  baseURL: "https://localhost:3000"
 });
 
 window.cpointsApi = axios.create({
-  baseURL: "http://localhost:3000"
+  baseURL: "https://localhost:3000"
+  // baseURL: "https://throw-my-trash.herokuapp.com/"
 });
 
 window.batteriesApi = axios.create({
