@@ -134,11 +134,7 @@ a:hover {
 
 .listings .item .title {
   display: block;
-<<<<<<< HEAD
-  color: #00853e;
-=======
   color: #424242;
->>>>>>> 20a69b7babc6c6c9b98c16699e4f3643871ac433
   font-weight: 700; }
 
 .listings .item .title small {
@@ -146,11 +142,7 @@ a:hover {
 
 .listings .item.active .title,
 .listings .item .title:hover {
-<<<<<<< HEAD
-  color: #8cc63f; }
-=======
   color: #000000; }
->>>>>>> 20a69b7babc6c6c9b98c16699e4f3643871ac433
 
 .listings .item.active {
   background-color: #f8f8f8; }
@@ -167,8 +159,6 @@ a:hover {
 ::-webkit-scrollbar-thumb {
   background: #00853e;
   border-radius: 0; }
-<<<<<<< HEAD
-=======
 
 .markercp {
   border: none;
@@ -177,7 +167,6 @@ a:hover {
   width: 56px;
   background-image: url(../images/cpmarker.png);
   background-color: rgba(0, 0, 0, 0); }
->>>>>>> 20a69b7babc6c6c9b98c16699e4f3643871ac433
 
 .clearfix {
   display: block; }
@@ -193,11 +182,7 @@ a:hover {
   display: flex;
   position: relative;
   width: 100%;
-<<<<<<< HEAD
-  height: 80vh; }
-=======
   height: 85vh; }
->>>>>>> 20a69b7babc6c6c9b98c16699e4f3643871ac433
 
 .hide {
   visibility: hidden; }
@@ -334,11 +319,7 @@ a:hover {
 .mapboxgl-popup-content h4 {
   margin: 0;
   display: block;
-<<<<<<< HEAD
-  padding: 10px;
-=======
   padding: 10px 10px 10px 10px;
->>>>>>> 20a69b7babc6c6c9b98c16699e4f3643871ac433
   font-weight: 400; }
 
 .mapboxgl-popup-content div {
@@ -352,19 +333,16 @@ a:hover {
 
 .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
   border-bottom-color: #91c949; }
-<<<<<<< HEAD
   .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip .form-control {
     display: unset;
     width: 50%;
     margin-left: 25%; }
-=======
 
 h3 {
   font-size: 1rem; }
 
 h4 {
   font-size: 0.7rem; }
->>>>>>> 20a69b7babc6c6c9b98c16699e4f3643871ac433
 
 .title-info {
   text-align: center;
@@ -416,10 +394,6 @@ h5 {
 .box {
   width: 25%;
   background-color: white;
-<<<<<<< HEAD
-=======
-  margin-left: 10%;
->>>>>>> 20a69b7babc6c6c9b98c16699e4f3643871ac433
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); }
 
 .topOfReservates {
@@ -476,7 +450,6 @@ h5 {
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer; }
-<<<<<<< HEAD
 
 .searchNav {
   display: flex;
@@ -489,7 +462,5 @@ h5 {
   justify-content: space-between;
   width: 80%;
   margin: 3% auto; }
-=======
->>>>>>> 20a69b7babc6c6c9b98c16699e4f3643871ac433
 
 /*# sourceMappingURL=style.css.map */

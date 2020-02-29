@@ -14,7 +14,7 @@ const userSchema = new Schema(
     //para añadir las coordenadas
     coordinates: { type: [Number], required: true },
     //para añadir las resesrvas
-    dates: [{ type: Schema.ObjectId, ref: "reservates" }]
+    dates: [{ type: Schema.ObjectId, ref: "Reservate" }]
     // dates: [{ type: String }]
   },
   {
