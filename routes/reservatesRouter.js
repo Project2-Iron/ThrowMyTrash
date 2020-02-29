@@ -14,13 +14,17 @@ const Cpoint = require("../models/cleanPoint");
 // });
 
 passportRouter.get("/reservates", (req, res, next) => {
-  console.log(req.user._id);
-  User.findOne(req.user._id)
+  const _id = req.user.id;
+  User.findOne({ _id })
     .populate("dates")
-    .then(reservate => {
-      const dates = req.user.dates;
-      console.log("eeeeeeeee" + dates);
-      return res.render("passport/reservates", { reservate, dates });
+    .then(user => {
+      // const data = reservate.dates;
+      // console.log(data);
+      // const dates = req.user.dates;
+      // console.log("eeeeeeeee" + dates);
+      console.log(user.dates);
+      console.log("estamos viendo esto ", user.dates);
+      return res.render("passport/reservates", {});
       //});
     });
 });
