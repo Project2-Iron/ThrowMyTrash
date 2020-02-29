@@ -17,16 +17,17 @@
   </div>
   <div class="listReservates">
     <div class="box">
-      {{#if dates}}
+      {{#if data}}
       <div class="titleOfReservates">
         <h2><b>Scheduled pickups</b></h2>
       </div>
-      {{#each dates}}
+      {{#each data}}
       <div>
-        <form method="POST" action="/reservates/delete/{{this}}">
+        <form method="POST" action="/reservates/delete/{{this._id}}">
           <div>
             <div class="elementOfReservates">
-              <h5>{{this}}</h5>
+              <h5>{{this.date}}</h5>
+              <h5>{{this._id}}</h5>
               <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Delete</button>
             </div>
           </div>

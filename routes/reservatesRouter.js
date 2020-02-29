@@ -14,13 +14,12 @@ const Cpoint = require("../models/cleanPoint");
 // });
 
 passportRouter.get("/reservates", (req, res, next) => {
-  Reservates.findOne()
-    .populate("reservates")
-    .then(reservate => {
-      const dates = req.user.dates;
-      console.log("eeeeeeeee" + dates);
-      return res.render("passport/reservates", { reservate, dates });
-      //});
+  const _id = req.user.id;
+  User.findOne({ _id })
+    .populate("dates")
+    .then(user => {
+      const data = user.dates;
+      return res.render("passport/reservates", { data });
     });
 });
 
@@ -42,15 +41,15 @@ passportRouter.post("/reservates", (req, res, next) => {
       { new: true }
     )
   );
-  console.log(newReservate._id);
-  console.log(reservate);
+
   return res.redirect("/reservates");
 });
 
-passportRouter.post("/reservates/delete/:this", async (req, res, next) => {
+passportRouter.post("/reservates/delete/:id", async (req, res, next) => {
   console.log("holiiii");
   const user = req.user;
-  const cleanPointId = req.params.this;
+  const cleanPointId = req.params.id;
+  console.log(cleanPointId);
   try {
     await User.updateOne(
       user,
