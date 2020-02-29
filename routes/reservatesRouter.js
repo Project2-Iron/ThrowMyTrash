@@ -48,12 +48,12 @@ passportRouter.post("/reservates", (req, res, next) => {
 passportRouter.post("/reservates/delete/:id", async (req, res, next) => {
   console.log("holiiii");
   const user = req.user;
-  const cleanPointId = req.params.id;
-  console.log(cleanPointId);
+  const reservate = req.params.id;
+  console.log(reservate);
   try {
     await User.updateOne(
       user,
-      { $pull: { dates: cleanPointId } },
+      { $pull: { dates: reservate } },
       { safe: true, multi: true }
     );
     return res.redirect("/reservates");
