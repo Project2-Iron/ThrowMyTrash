@@ -3,11 +3,11 @@ mapboxgl.accessToken =
 
 window.trashApi = axios.create({
   // baseURL: "https://throw-my-trash.herokuapp.com/"
-  baseURL: "https://localhost:3000"
+  baseURL: "http://localhost:3000"
 });
 
 window.cpointsApi = axios.create({
-  baseURL: "https://localhost:3000"
+  baseURL: "http://localhost:3000"
   // baseURL: "https://throw-my-trash.herokuapp.com/"
 });
 
