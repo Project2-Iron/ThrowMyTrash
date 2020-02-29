@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   map.on("load", function() {
+    //MAPA DE LOS CUBOS DE BASURA
+
     trashApi.get("/trash").then(res => {
       const dataContainers = res.data;
       console.log(dataContainers);
@@ -105,24 +107,23 @@ document.addEventListener("DOMContentLoaded", () => {
             });
           });
       });
-      // map.addLayer({
-      //   id: "trashcontainers",
-      //   type: "circle",
-      //   source: "containers",
-      //   paint: {
-      //     // make circles larger as the user zooms from z12 to z22
-      //     "circle-radius": {
-      //       base: 5,
-      //       stops: [
-      //         [12, 2],
-      //         [22, 180]
-      //       ]
-      //     },
-      //     "circle-color": "red"
-      //   }
-      // });
     });
+
+    var geocoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken, // Set the access token
+      mapboxgl: map, // Set the mapbox-gl instance
+      marker: true, // Use the geocoder's default marker style
+      bbox: [
+        -3.889302833323484,
+        40.31950673783538,
+        -3.54872936230592,
+        40.64119742977738
+      ] // Set the bounding box coordinates
+    });
+
+    map.addControl(geocoder, "top-left");
   });
+
   map.on("click", "unclustered-point", function(e) {
     var coordinates = e.features[0].geometry.coordinates.slice();
     var name = e.features[0].properties.name;
@@ -139,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     new mapboxgl.Popup()
       .setLngLat(coordinates)
-      .setHTML(`${name}, ${id}`)
+      .setHTML(`${name}`)
       .addTo(map);
   });
 
@@ -162,4 +163,6 @@ document.addEventListener("DOMContentLoaded", () => {
   map.on("mouseleave", "unclustered-point", function() {
     map.getCanvas().style.cursor = "";
   });
+
+  //MAPA DE LOS PUNTOS LIMPIOS
 });

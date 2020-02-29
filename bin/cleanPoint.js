@@ -20,7 +20,8 @@ const getCleanPoint = async () => {
         coordinates: [e.location.longitude, e.location.latitude]
       };
       cPoint.properties = {
-        name: e.title
+        name: e.title,
+        address: e.address["street-address"]
       };
       return cPoint;
     });
