@@ -124,6 +124,10 @@ a:hover {
   width: 70%;
 }
 
+.mapindex {
+  width: 100%;
+}
+
 .heading {
   background: #fff;
   border-bottom: 1px solid #eee;
@@ -190,6 +194,33 @@ a:hover {
   height: 56px;
   width: 56px;
   background-image: url(../images/cpmarker.png);
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.markeroil {
+  border: none;
+  cursor: pointer;
+  height: 56px;
+  width: 56px;
+  background-image: url(../images/oilmarker.png);
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.markerbattery {
+  border: none;
+  cursor: pointer;
+  height: 56px;
+  width: 56px;
+  background-image: url(../images/batterymarker.png);
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.markerclothes {
+  border: none;
+  cursor: pointer;
+  height: 56px;
+  width: 56px;
+  background-image: url(../images/clothesmarker.png);
   background-color: rgba(0, 0, 0, 0);
 }
 
