@@ -13,18 +13,18 @@ const Cpoint = require("../models/cleanPoint");
 //   });
 // });
 
-passportRouter.get("/reservates", (req, res, next) => {
+passportRouter.get("/bookings", (req, res, next) => {
   const _id = req.user.id;
   User.findOne({ _id })
     .populate("dates")
     .then(user => {
       const data = user.dates;
-      return res.render("passport/reservates", { data });
+      return res.render("passport/bookings", { data });
     });
 });
 
-passportRouter.post("/reservates", (req, res, next) => {
-  const { typeOfWaste, direction, phone, date, time } = req.body;
+passportRouter.post("/bookings", (req, res, next) => {
+  const { typeOfWaste, direction, phone, date, time, observation } = req.body;
   const reservate = req.params.id;
   const data = date.concat(", ", time);
 
@@ -32,7 +32,8 @@ passportRouter.post("/reservates", (req, res, next) => {
     date: data,
     phone: phone,
     typeOfWaste: typeOfWaste,
-    direction: direction
+    direction: direction,
+    observation: observation
   };
   Reservates.create(newReservate).then(result =>
     User.findByIdAndUpdate(
@@ -42,10 +43,10 @@ passportRouter.post("/reservates", (req, res, next) => {
     )
   );
 
-  return res.redirect("/reservates");
+  return res.redirect("/bookings");
 });
 
-passportRouter.post("/reservates/delete/:id", async (req, res, next) => {
+passportRouter.post("/bookings/delete/:id", async (req, res, next) => {
   console.log("holiiii");
   const user = req.user;
   const reservate = req.params.id;
@@ -56,7 +57,7 @@ passportRouter.post("/reservates/delete/:id", async (req, res, next) => {
       { $pull: { dates: reservate } },
       { safe: true, multi: true }
     );
-    return res.redirect("/reservates");
+    return res.redirect("/bookings");
   } catch (error) {
     console.log(error);
   }

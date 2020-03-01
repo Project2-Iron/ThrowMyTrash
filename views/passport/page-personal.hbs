@@ -1,7 +1,23 @@
 <div>
-  <div class="title-info ">
+  <div class="title-info colorVerde">
     <h2>Welcome {{user.name}}</h2>
   </div>
+  {{#each searchFavourites}}
+  <div class="title-info">
+    <form method="POST" action="/favourites/delete/{{this._id}}">
+      <div class="row title-info">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><b>{{ this.properties.name }}</b></h5>
+              <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  {{/each}}
   <div class="row">
     <div class="col-sm-6">
       <div class="card">
