@@ -4,8 +4,8 @@
     <div class="form">
       <form method="POST" class="login-form">
         {{#if errorMessage}}
-        <div class="text-right">
-          <span class="p-3 border border-danger error-msg">{{errorMessage}}</span>
+        <div class="errorText">
+          <span><b>{{errorMessage}}</b></span>
         </div>
         {{/if}}
         <div>

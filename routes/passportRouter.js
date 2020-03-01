@@ -96,7 +96,7 @@ passportRouter.post("/register", async (req, res, next) => {
       errorMessage: "User already exists"
     });
   } else {
-    await User.create({
+    const newUser = await User.create({
       name,
       lastName,
       address,
@@ -106,8 +106,12 @@ passportRouter.post("/register", async (req, res, next) => {
       password: hashPassword(password),
       favourites
     });
+    req.login(newUser, function(err) {
+      if (!err) {
+        return res.redirect("/");
+      }
+    });
   }
-  return res.redirect("/");
 });
 
 passportRouter.get("/login", (req, res, next) => {
@@ -128,11 +132,35 @@ passportRouter.get("/logout", ensureLogin.ensureLoggedIn(), (req, res) => {
   res.redirect("/");
 });
 
+// passportRouter.get("/favourites", (req, res, next) => {
+//   const _id = req.user.id;
+//   User.findOne({ _id })
+//     .populate("favourites")
+//     .then(user => {
+//       console.log(user);
+//       return res.render("passport/favourites", {
+//         favourites: user.favourites
+//       });
+//     })
+//     .catch(error => console.log(error));
+// });
+
 passportRouter.get(
   "/page-personal",
   ensureLogin.ensureLoggedIn(),
   (req, res) => {
-    res.render("passport/page-personal", { user: req.user });
+    const _id = req.user.id;
+    User.findOne({ _id })
+      .populate("favourites")
+      .then(user => {
+        console.log(user);
+        const searchFavourites = user.favourites;
+        res.render("passport/page-personal", {
+          user: req.user,
+          searchFavourites
+        });
+      })
+      .catch(error => console.log(error));
   }
 );
 
