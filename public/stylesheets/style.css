@@ -527,6 +527,9 @@ h5 {
 .colorVerde {
   color: #76b852; }
 
+.fondoVerde {
+  background-color: #04271d; }
+
 .botonVerde {
   border: 1px solid #76b852;
   color: #76b852; }
@@ -541,5 +544,16 @@ h5 {
   text-align: center;
   color: red;
   font-size: large; }
+
+.cardPersonal {
+  align-items: center;
+  background-color: #04271d; }
+
+.prueba {
+  color: #76b852;
+  display: flex;
+  justify-content: center;
+  margin: 3%;
+  padding: 1%; }
 
 /*# sourceMappingURL=style.css.map */

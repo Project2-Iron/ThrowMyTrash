@@ -1,8 +1,8 @@
 <div>
-  <div class="title-info colorVerde">
-    <h2>Welcome {{user.name}}</h2>
+  <div class="prueba">
+    <h2>Hellow {{user.name}}, what do you need to recycle</h2>
   </div>
-  {{#each searchFavourites}}
+  {{!-- {{#each searchFavourites}}
   <div class="title-info">
     <form method="POST" action="/favourites/delete/{{this._id}}">
       <div class="row title-info">
@@ -17,33 +17,40 @@
       </div>
     </form>
   </div>
-  {{/each}}
+  {{/each}} --}}
+  {{!-- <div class="prueba">
+    <h5><b>What do you need to recycle</b></h5>
+  </div> --}}
   <div class="row">
     <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <a href="/page-personal/battery" class="btn btn-primary">Batteries</a>
+      <div class="card cardPersonal">
+        <img style="width:50%; height:50%;" class="card-img-top" src="../images/battery.jpg" />
+        <div class="card-body fondoVerde">
+          <a href="/page-personal/battery" class="btn btn-outline-dark my-2 my-sm-0 botonVerde">Batteries</a>
         </div>
       </div>
     </div>
     <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <a href="/page-personal/clothes" class="btn btn-primary">Clothes</a>
+      <div class="card cardPersonal">
+        <img style="width:50%; height:50%;" src="../images/clothes.jpg" />
+        <div class="card-body fondoVerde">
+          <a href="/page-personal/clothes" class="btn btn-outline-dark my-2 my-sm-0 botonVerde">Clothes</a>
         </div>
       </div>
     </div>
     <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <a href="/page-personal/vegetalOil" class="btn btn-primary">Vegetal Oil</a>
+      <div class="card cardPersonal">
+        <img style="width:50%; height:50%;" src="../images/oil.jpg" />
+        <div class="card-body fondoVerde">
+          <a href="/page-personal/vegetalOil" class="btn btn-outline-dark my-2 my-sm-0 botonVerde">Vegetal Oil</a>
         </div>
       </div>
     </div>
     <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <a href="/page-personal/cleanPoints" class="btn btn-primary">Clean Points</a>
+      <div class="card cardPersonal">
+        <img style="width:50%; height:50%;" src="../images/cpoint.jpg" />
+        <div class="card-body fondoVerde">
+          <a href="/page-personal/cleanPoints" class="btn btn-outline-dark my-2 my-sm-0 botonVerde">R.Points</a>
         </div>
       </div>
     </div>
