@@ -19,30 +19,40 @@
     <div class="box">
       {{#if data}}
       <div class="titleOfReservates">
-        <h2><b>Scheduled pickups</b></h2>
+        <h2><b>Pickups</b></h2>
       </div>
       {{#each data}}
       <div>
-        <form method="POST" action="/reservates/delete/{{this._id}}">
+        <form method="POST" action="/bookings/delete/{{this._id}}">
           <div>
             <div class="elementOfReservates">
-              <h5>{{this.date}}</h5>
-              <h5>{{this._id}}</h5>
-              <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Delete</button>
+              <h5><b>{{this.date}}</b></h5>
             </div>
+            <div class="textObservation">
+              <h6 class="titleObservation"><b>Direction:</b></h6>
+              <h6 class="text">{{this.direction}}</h6>
+            </div>
+          </div>
+          {{#if observation}}
+          <div class="textObservation">
+            <h6 class="titleObservation"><b>Observations:</b></h6>
+            <h6 class="text">{{this.observation}}</h6>
+          </div>
+          {{/if}}
+          <div class="buttonReservates">
+            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Delete</button>
           </div>
         </form>
       </div>
       {{/each}}
       {{/if}}
     </div>
-
     <div>
       <div class="formOfReservate">
         <div class="title-info">
-          <h2><b>Make your pickup</b></h2>
+          <h2><b>Create your pickup</b></h2>
         </div>
-        <form method="POST" class="login-form" action="/reservates">
+        <form method="POST" class="login-form" action="/bookings">
           <div>
             <label for="firstName"></label>
             <input type="text" id="firstName" placeholder="Type of waste" required="true" name="typeOfWaste">
@@ -61,18 +71,22 @@
           </div>
           <div>
             <label for="lastName"></label>
-            <input list="Time" name="time" required="true">
+            <input list="Time" name="time" placeholder="Time" required="true">
             <datalist id="Time">
               {{#each reservate.time}}
               <option value="{{this}}"></option>
               {{/each}}
             </datalist>
           </div>
-          <button type="submit">Add reservation</button>
+          <div>
+            <label for="lastName"></label>
+            <textarea class="textArea" id="exampleFormControlTextarea1" placeholder="Observations" rows="3"
+              name="observation"></textarea>
+          </div>
+          <button type="submit">Add Pickups</button>
         </form>
       </div>
     </div>
   </div>
-</div>
 
-<script src="/javascripts/today.js"></script>
+  <script src="/javascripts/today.js"></script>

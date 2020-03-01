@@ -7,7 +7,8 @@ const ReservatersSchema = new Schema(
     direction: String,
     phone: Number,
     date: String,
-    time: { type: Array, default: ["10:00", "11:00", "12:00"] }
+    time: { type: Array, default: ["10:00", "11:00", "12:00"] },
+    observation: { type: String, default: "" }
   },
   {
     timestamps: true
