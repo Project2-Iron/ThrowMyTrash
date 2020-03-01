@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: #76b852; /* fallback for old browsers */
+  background: #04271d; /* fallback for old browsers */
   font-family: "Roboto", sans-serif;
 }
 
@@ -144,9 +144,11 @@ a:hover {
 
 .listings .item {
   display: block;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #76b852;
   padding: 10px;
   text-decoration: none;
+  color: #76b852;
+  background-color: #04271d;
 }
 
 .listings .item:last-child {
@@ -165,7 +167,7 @@ a:hover {
 
 .listings .item.active .title,
 .listings .item .title:hover {
-  color: #000000;
+  color: white;
 }
 
 .listings .item.active {
@@ -602,4 +604,20 @@ h5 {
   display: flex;
   justify-content: center;
   margin-bottom: 5%;
+}
+
+.colorVerde {
+  color: #76b852;
+}
+.botonVerde {
+  border: 1px solid #76b852;
+  color: #76b852;
+}
+
+.searchVerde {
+  border: 1px solid #76b852;
+}
+
+.boton {
+  margin-left: 0px;
 }
