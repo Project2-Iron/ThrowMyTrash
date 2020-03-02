@@ -1,0 +1,13 @@
+# Ignore guide
+guide
+# Dependency directory
+node_modules
+
+# Debug log from npm
+npm-debug.log
+
+# Example JSON
+**/*.json
+
+# ENV
+.env*

@@ -1,0 +1,93 @@
+<div>
+  {{!-- <img style=" position:absolute ;width:100%; height:125%;" src="../images/reservates.jpg" /> --}}
+  <div class="topOfReservates">
+    <div class="title-info pacific-font">
+      <h2>Collection Requirements</h2>
+    </div>
+    <div>
+      <ul>
+        <li> - Provide personal data.</li>
+        <li> - Telephone.</li>
+        <li> - Schedule to locate the person interested. He will be contacted mainly in the morning.</li>
+        <li> - List of items to be removed. Only those furniture and fixtures will be removed in an amount less than 3m3
+          and a maximum of 6 elements (for example: 1 mattress +1 refrigerator +1 module of a kitchen cabinet and 3
+          doors), furniture or fixtures will not be removed to companies or industries.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="listReservates">
+    <div class="box">
+      {{#if data}}
+      <div class="titleOfReservates">
+        <h2><b>Pickups</b></h2>
+      </div>
+      {{#each data}}
+      <div>
+        <form method="POST" action="/bookings/delete/{{this._id}}">
+          <div>
+            <div class="elementOfReservates">
+              <h5><b>{{this.date}}</b></h5>
+            </div>
+            <div class="textObservation">
+              <h6 class="titleObservation"><b>Direction:</b></h6>
+              <h6 class="text">{{this.direction}}</h6>
+            </div>
+          </div>
+          {{#if observation}}
+          <div class="textObservation">
+            <h6 class="titleObservation"><b>Observations:</b></h6>
+            <h6 class="text">{{this.observation}}</h6>
+          </div>
+          {{/if}}
+          <div class="buttonReservates">
+            <button class="btn btn-outline-dark my-2 my-sm-0 boton" type="submit">Delete</button>
+          </div>
+        </form>
+      </div>
+      {{/each}}
+      {{/if}}
+    </div>
+    <div>
+      <div class="formOfReservate">
+        <div class="title-info pacific-font">
+          <h2>Create your pickup</h2>
+        </div>
+        <form method="POST" class="login-form" action="/bookings">
+          <div>
+            <label for="firstName"></label>
+            <input type="text" id="firstName" placeholder="Type of waste" required="true" name="typeOfWaste">
+          </div>
+          <div>
+            <label for="lastName"></label>
+            <input type="text" id="lastName" placeholder="pick up address" required="true" name="direction">
+          </div>
+          <div>
+            <label for="lastName"></label>
+            <input type="text" id="lastName" placeholder="Phone" required="true" name="phone">
+          </div>
+          <div>
+            <label for="lastName"></label>
+            <input name="date" id="today" type="date" required="true">
+          </div>
+          <div>
+            <label for="lastName"></label>
+            <input list="Time" name="time" placeholder="Time" required="true">
+            <datalist id="Time">
+              {{#each reservate.time}}
+              <option value="{{this}}"></option>
+              {{/each}}
+            </datalist>
+          </div>
+          <div>
+            <label for="lastName"></label>
+            <textarea class="textArea" id="exampleFormControlTextarea1" placeholder="Observations" rows="3"
+              name="observation"></textarea>
+          </div>
+          <button type="submit">Add Pickups</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="/javascripts/today.js"></script>
+  {{>footer}}

@@ -1,0 +1,54 @@
+<div>
+  <div class="title-info colorVerde pacific-font titleOfFavourites">
+    <h2>These are your current favourites clean points</h2>
+  </div>
+  <div>
+    <form method="POST" action="/favourites">
+      <div class="searchNav">
+        <input name="search" id="search" class="form-control mr-sm-8 searchVerde" type="text"
+          placeholder="Search for your district" aria-label="Search" required="true">
+        <button class="btn btn-outline-dark my-2 my-sm-0 botonVerde" type="submit">Search</button>
+      </div>
+    </form>
+  </div>
+
+  {{#each favourites}}
+  <div class="title-info">
+    <form method="POST" action="/favourites/delete/{{this._id}}">
+      <div class="row title-info">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><b>{{ this.properties.name }}</b></h5>
+              <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  {{/each}}
+
+  {{#if foundCleanPoint}}
+  <div class="title-info colorVerde">
+    <h2>List of clean points</h2>
+  </div>
+  {{#each foundCleanPoint}}
+  <div class="title-info">
+    <form method="POST" action="/favourites/{{_id}}">
+      <div class="row title-info">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><b>{{ properties.name }}</b></h5>
+              <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  {{/each}}
+  {{/if}}
+</div>
+{{>footer}}
