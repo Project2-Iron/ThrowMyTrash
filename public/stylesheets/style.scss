@@ -451,12 +451,6 @@ h4 {
   margin-bottom: 25px;
 }
 
-.logo {
-  background-image: url("../images/throw.png");
-  width: 495px;
-  height: 90px;
-  border: 1px solid white;
-}
 .card-body {
   display: flex;
   justify-content: center;
@@ -487,7 +481,7 @@ h5 {
 }
 
 .btn {
-  // margin-left: 15px;
+  margin-left: 15px;
 }
 
 .dropdown-menu {
@@ -635,6 +629,20 @@ h5 {
   font-size: large;
 }
 
+.cardPersonal {
+  align-items: center;
+  background-color: #04271d;
+}
+
+.titlePagePersonal {
+  color: #76b852;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3%;
+  padding: 1%;
+}
+
 //NUEVO PARA INDEX
 
 .logo {
@@ -690,16 +698,4 @@ ul.actions li {
   display: inline-block;
   padding: 0 1em 0 0;
   vertical-align: middle;
-  .cardPersonal {
-    align-items: center;
-    background-color: #04271d;
-  }
-}
-
-.prueba {
-  color: #76b852;
-  display: flex;
-  justify-content: center;
-  margin: 3%;
-  padding: 1%;
 }

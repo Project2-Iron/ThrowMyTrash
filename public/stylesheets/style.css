@@ -383,12 +383,6 @@ h4 {
   margin-top: 25px;
   margin-bottom: 25px; }
 
-.logo {
-  background-image: url("../images/throw.png");
-  width: 495px;
-  height: 90px;
-  border: 1px solid white; }
-
 .card-body {
   display: flex;
   justify-content: center;
@@ -414,6 +408,9 @@ h5 {
 
 .navbar-brand {
   text-decoration: none; }
+
+.btn {
+  margin-left: 15px; }
 
 .dropdown-menu {
   right: 0;
@@ -544,7 +541,18 @@ h5 {
   color: red;
   font-size: large; }
 
-<<<<<<< HEAD
+.cardPersonal {
+  align-items: center;
+  background-color: #04271d; }
+
+.titlePagePersonal {
+  color: #76b852;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3%;
+  padding: 1%; }
+
 .logo {
   font-family: "Pacifico", cursive;
   height: inherit;
@@ -592,17 +600,5 @@ ul.actions li {
   display: inline-block;
   padding: 0 1em 0 0;
   vertical-align: middle; }
-=======
-.cardPersonal {
-  align-items: center;
-  background-color: #04271d; }
-
-.prueba {
-  color: #76b852;
-  display: flex;
-  justify-content: center;
-  margin: 3%;
-  padding: 1%; }
->>>>>>> 17b7e41b738dc556b6e28f4142097bcc525133d5
 
 /*# sourceMappingURL=style.css.map */
