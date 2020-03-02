@@ -5,6 +5,7 @@ const CPoint = require("../models/cleanPoint");
 const Batteries = require("../models/batteries");
 const Clothes = require("../models/clothes");
 const Oil = require("../models/oil");
+const User = require("../models/user");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -34,6 +35,11 @@ router.get("/clothes", async (req, res, next) => {
 router.get("/oil", async (req, res, next) => {
   const oil = await Oil.find();
   res.json(oil);
+});
+
+router.get("/user", async (req, res, next) => {
+  const user = await User.find();
+  res.json(user);
 });
 
 // router.get("/cPointns", async (req, res, next) => {
