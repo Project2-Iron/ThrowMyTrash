@@ -15,3 +15,11 @@ Además, puedes solicitar una recogida de basura a domicilio para tus trastos ma
 ## Capturas de Pantalla
 
 <img src="http://i.imgur.com/ejgYbgy.png" alt="" width="600">
+
+<img src="http://i.imgur.com/XqBgcZG.png" alt="" width="600">
+
+<img src="http://i.imgur.com/JUY4mll.png" alt="" width="600">
+
+<img src="http://i.imgur.com/nHhXiX4.png" alt="" width="600">
+
+<img src="http://i.imgur.com/HQAik14.png" alt="" width="600">
