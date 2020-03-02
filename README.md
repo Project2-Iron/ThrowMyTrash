@@ -12,4 +12,4 @@ Al acceder a la web, lo unico que tienes que hacer es registrarte para tener acc
 
 ## Capturas de Pantalla
 
-<img src="https://github.com/Donivanes/irontype/blob/master/images/screenshot.png" alt="" width="600">
+<img src="http://i.imgur.com/ejgYbgy.png" alt="" width="600">
