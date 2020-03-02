@@ -573,6 +573,15 @@ h5 {
   margin: 1%;
   padding: 1%; }
 
+.imagenTanos {
+  width: 740px;
+  height: 314px;
+  display: block;
+  margin: auto;
+  background-image: url(../images/404.gif);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
 .logo {
   font-family: "Pacifico", cursive;
   height: inherit;
@@ -620,15 +629,6 @@ ul.actions li {
   display: inline-block;
   padding: 0 1em 0 0;
   vertical-align: middle; }
-
-.imagenTanos {
-  width: 740px;
-  height: 314px;
-  display: block;
-  margin: auto;
-  background-image: url(../images/404.gif);
-  background-size: 100% auto;
-  background-repeat: no-repeat; }
 
 #about {
   display: flex;
