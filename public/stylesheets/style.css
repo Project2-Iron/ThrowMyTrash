@@ -526,6 +526,9 @@ h5 {
 .colorVerde {
   color: #76b852; }
 
+.fondoVerde {
+  background-color: #04271d; }
+
 .botonVerde {
   border: 1px solid #76b852;
   color: #76b852; }
@@ -541,6 +544,7 @@ h5 {
   color: red;
   font-size: large; }
 
+<<<<<<< HEAD
 .logo {
   font-family: "Pacifico", cursive;
   height: inherit;
@@ -588,5 +592,17 @@ ul.actions li {
   display: inline-block;
   padding: 0 1em 0 0;
   vertical-align: middle; }
+=======
+.cardPersonal {
+  align-items: center;
+  background-color: #04271d; }
+
+.prueba {
+  color: #76b852;
+  display: flex;
+  justify-content: center;
+  margin: 3%;
+  padding: 1%; }
+>>>>>>> 17b7e41b738dc556b6e28f4142097bcc525133d5
 
 /*# sourceMappingURL=style.css.map */

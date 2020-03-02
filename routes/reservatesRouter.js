@@ -5,27 +5,22 @@ const passport = require("passport");
 const Reservates = require("../models/reservates");
 const Cpoint = require("../models/cleanPoint");
 
-// passportRouter.get("/reservates", (req, res, next) => {
-//   Reservates.findOne().then(reservate => {
-//     const dates = req.user.dates;
-//     return res.render("passport/reservates", { reservate, dates });
-//     //});
-//   });
-// });
-
 passportRouter.get("/bookings", (req, res, next) => {
   const _id = req.user.id;
   User.findOne({ _id })
     .populate("dates")
     .then(user => {
       const data = user.dates;
-      return res.render("passport/bookings", { data });
+      Reservates.findOne().then(reservate => {
+        console.log("este es reservateeeeeee", reservate);
+        console.log(data);
+        return res.render("passport/bookings", { data, reservate });
+      });
     });
 });
 
 passportRouter.post("/bookings", (req, res, next) => {
   const { typeOfWaste, direction, phone, date, time, observation } = req.body;
-  const reservate = req.params.id;
   const data = date.concat(", ", time);
 
   const newReservate = {

@@ -612,6 +612,10 @@ h5 {
 .colorVerde {
   color: #76b852;
 }
+
+.fondoVerde {
+  background-color: #04271d;
+}
 .botonVerde {
   border: 1px solid #76b852;
   color: #76b852;
@@ -686,4 +690,16 @@ ul.actions li {
   display: inline-block;
   padding: 0 1em 0 0;
   vertical-align: middle;
+  .cardPersonal {
+    align-items: center;
+    background-color: #04271d;
+  }
+}
+
+.prueba {
+  color: #76b852;
+  display: flex;
+  justify-content: center;
+  margin: 3%;
+  padding: 1%;
 }
