@@ -98,11 +98,11 @@ h1 {
   padding: 20px 2px; }
 
 a {
-  color: #404040;
+  color: #76b852;
   text-decoration: none; }
 
 a:hover {
-  color: #101010; }
+  color: #fff; }
 
 .sidebar {
   width: 30%;
@@ -383,12 +383,6 @@ h4 {
   margin-top: 25px;
   margin-bottom: 25px; }
 
-.logo {
-  background-image: url("../images/throw.png");
-  width: 495px;
-  height: 90px;
-  border: 1px solid white; }
-
 .card-body {
   display: flex;
   justify-content: center;
@@ -414,6 +408,9 @@ h5 {
 
 .navbar-brand {
   text-decoration: none; }
+
+.btn {
+  margin-left: 15px; }
 
 .dropdown-menu {
   right: 0;
@@ -526,6 +523,11 @@ h5 {
 .colorVerde {
   color: #76b852; }
 
+.colorVerdeOscuro {
+  font-family: "Pacifico", cursive;
+  color: #064123;
+  font-weight: normal; }
+
 .fondoVerde {
   background-color: #04271d; }
 
@@ -544,6 +546,36 @@ h5 {
   color: red;
   font-size: large; }
 
+<<<<<<< HEAD
+=======
+.cardPersonal {
+  align-items: center;
+  background-color: #04271d; }
+
+.titlePagePersonal {
+  color: #76b852;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3%;
+  padding: 1%; }
+
+.footer {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+  color: #76b852; }
+
+.titleError {
+  color: #76b852;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1%;
+  padding: 1%; }
+
+>>>>>>> 19853d6cb692b9f164e7fcdd692689a15babc32a
 .logo {
   font-family: "Pacifico", cursive;
   height: inherit;
@@ -591,6 +623,7 @@ ul.actions li {
   display: inline-block;
   padding: 0 1em 0 0;
   vertical-align: middle; }
+<<<<<<< HEAD
   ul.actions li .cardPersonal {
     align-items: center;
     background-color: #04271d; }
@@ -601,5 +634,16 @@ ul.actions li {
   justify-content: center;
   margin: 3%;
   padding: 1%; }
+=======
+
+.prueba {
+  width: 740px;
+  height: 314px;
+  display: block;
+  margin: auto;
+  background-image: url(../images/404.gif);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+>>>>>>> 19853d6cb692b9f164e7fcdd692689a15babc32a
 
 /*# sourceMappingURL=style.css.map */
