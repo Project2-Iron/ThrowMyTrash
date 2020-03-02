@@ -546,8 +546,6 @@ h5 {
   color: red;
   font-size: large; }
 
-<<<<<<< HEAD
-=======
 .cardPersonal {
   align-items: center;
   background-color: #04271d; }
@@ -575,7 +573,15 @@ h5 {
   margin: 1%;
   padding: 1%; }
 
->>>>>>> 19853d6cb692b9f164e7fcdd692689a15babc32a
+.imagenTanos {
+  width: 740px;
+  height: 314px;
+  display: block;
+  margin: auto;
+  background-image: url(../images/404.gif);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
 .logo {
   font-family: "Pacifico", cursive;
   height: inherit;
@@ -623,27 +629,5 @@ ul.actions li {
   display: inline-block;
   padding: 0 1em 0 0;
   vertical-align: middle; }
-<<<<<<< HEAD
-  ul.actions li .cardPersonal {
-    align-items: center;
-    background-color: #04271d; }
-
-.prueba {
-  color: #76b852;
-  display: flex;
-  justify-content: center;
-  margin: 3%;
-  padding: 1%; }
-=======
-
-.imagenTanos {
-  width: 740px;
-  height: 314px;
-  display: block;
-  margin: auto;
-  background-image: url(../images/404.gif);
-  background-size: 100% auto;
-  background-repeat: no-repeat; }
->>>>>>> 19853d6cb692b9f164e7fcdd692689a15babc32a
 
 /*# sourceMappingURL=style.css.map */
