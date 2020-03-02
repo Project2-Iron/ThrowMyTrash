@@ -23,6 +23,10 @@ window.oilApi = axios.create({
   baseURL: "http://localhost:3000"
 });
 
+window.userApi = axios.create({
+  baseURL: "http://localhost:3000"
+});
+
 window.setMap = (center, zoom = 10) => {
   const map = new mapboxgl.Map({
     container: "map",

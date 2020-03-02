@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url(font-awesome.min.css);
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700|Pacifico");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300");
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: #04271d;
@@ -413,9 +415,6 @@ h5 {
 .navbar-brand {
   text-decoration: none; }
 
-.btn {
-  margin-left: 15px; }
-
 .dropdown-menu {
   right: 0;
   left: unset; }
@@ -545,6 +544,55 @@ h5 {
   color: red;
   font-size: large; }
 
+<<<<<<< HEAD
+.logo {
+  font-family: "Pacifico", cursive;
+  height: inherit;
+  color: #064123 !important;
+  font-size: 2em;
+  font-weight: normal;
+  padding-left: 20px; }
+
+.logo:hover {
+  color: rgba(0, 0, 0, 0.75) !important; }
+
+#photo {
+  background-color: #e5474b;
+  color: #f2a3a5;
+  background-color: #0c0c0c;
+  background-image: url("../images/banner2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90vh; }
+
+#photo h1 {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 40px;
+  line-height: normal; }
+
+#photo .inner {
+  width: calc(100% - 6em);
+  margin: 0 auto;
+  position: relative;
+  z-index: 10000;
+  line-height: 1.5; }
+
+.middle {
+  position: relative;
+  padding-top: 30vh;
+  width: 50%; }
+
+ul.actions {
+  cursor: default;
+  list-style: none;
+  padding-left: 0; }
+
+ul.actions li {
+  display: inline-block;
+  padding: 0 1em 0 0;
+  vertical-align: middle; }
+=======
 .cardPersonal {
   align-items: center;
   background-color: #04271d; }
@@ -555,5 +603,6 @@ h5 {
   justify-content: center;
   margin: 3%;
   padding: 1%; }
+>>>>>>> 17b7e41b738dc556b6e28f4142097bcc525133d5
 
 /*# sourceMappingURL=style.css.map */

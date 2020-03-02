@@ -1,4 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url(font-awesome.min.css);
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700|Pacifico");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300");
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: #04271d; /* fallback for old browsers */
@@ -484,7 +487,7 @@ h5 {
 }
 
 .btn {
-  margin-left: 15px;
+  // margin-left: 15px;
 }
 
 .dropdown-menu {
@@ -632,9 +635,65 @@ h5 {
   font-size: large;
 }
 
-.cardPersonal {
-  align-items: center;
-  background-color: #04271d;
+//NUEVO PARA INDEX
+
+.logo {
+  font-family: "Pacifico", cursive;
+  height: inherit;
+  color: #064123 !important;
+  font-size: 2em;
+  font-weight: normal;
+  padding-left: 20px;
+}
+
+.logo:hover {
+  color: rgba(0, 0, 0, 0.75) !important;
+}
+
+#photo {
+  background-color: #e5474b;
+  color: #f2a3a5;
+  background-color: #0c0c0c;
+  background-image: url("../images/banner2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90vh;
+}
+#photo h1 {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 40px;
+  line-height: normal;
+}
+
+#photo .inner {
+  width: calc(100% - 6em);
+  margin: 0 auto;
+  position: relative;
+  z-index: 10000;
+  line-height: 1.5;
+}
+
+.middle {
+  position: relative;
+  padding-top: 30vh;
+  width: 50%;
+}
+
+ul.actions {
+  cursor: default;
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.actions li {
+  display: inline-block;
+  padding: 0 1em 0 0;
+  vertical-align: middle;
+  .cardPersonal {
+    align-items: center;
+    background-color: #04271d;
+  }
 }
 
 .prueba {
