@@ -377,7 +377,7 @@ h4 {
 
 .title-info {
   text-align: center;
-  margin: 15px; }
+  margin-bottom: 25px; }
 
 .list {
   margin-top: 25px;
@@ -546,8 +546,6 @@ h5 {
   color: red;
   font-size: large; }
 
-<<<<<<< HEAD
-=======
 .cardPersonal {
   align-items: center;
   background-color: #04271d; }
@@ -575,7 +573,6 @@ h5 {
   margin: 1%;
   padding: 1%; }
 
->>>>>>> 19853d6cb692b9f164e7fcdd692689a15babc32a
 .logo {
   font-family: "Pacifico", cursive;
   height: inherit;
@@ -623,18 +620,6 @@ ul.actions li {
   display: inline-block;
   padding: 0 1em 0 0;
   vertical-align: middle; }
-<<<<<<< HEAD
-  ul.actions li .cardPersonal {
-    align-items: center;
-    background-color: #04271d; }
-
-.prueba {
-  color: #76b852;
-  display: flex;
-  justify-content: center;
-  margin: 3%;
-  padding: 1%; }
-=======
 
 .prueba {
   width: 740px;
@@ -644,6 +629,36 @@ ul.actions li {
   background-image: url(../images/404.gif);
   background-size: 100% auto;
   background-repeat: no-repeat; }
->>>>>>> 19853d6cb692b9f164e7fcdd692689a15babc32a
+
+#about {
+  display: flex;
+  padding: 4em;
+  margin: 2em;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.2); }
+
+#about h2 {
+  color: #fff;
+  font-family: "Pacifico", cursive; }
+
+#about p {
+  color: #fff;
+  font-size: 1.5em;
+  padding-top: 1em; }
+
+#follow {
+  padding: 4em;
+  flex-direction: column;
+  margin: 2em; }
+
+#follow h2 {
+  color: #fff;
+  font-family: "Pacifico", cursive; }
+
+.followcards {
+  display: flex; }
+
+.pacific-font {
+  font-family: "Pacifico", cursive; }
 
 /*# sourceMappingURL=style.css.map */
