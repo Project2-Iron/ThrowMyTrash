@@ -121,7 +121,7 @@ passportRouter.get("/login", (req, res, next) => {
 passportRouter.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/page-personal",
+    successRedirect: "/maps",
     failureRedirect: "/register"
     // failureFlash: "true"
   })
@@ -145,24 +145,20 @@ passportRouter.get("/logout", ensureLogin.ensureLoggedIn(), (req, res) => {
 //     .catch(error => console.log(error));
 // });
 
-passportRouter.get(
-  "/page-personal",
-  ensureLogin.ensureLoggedIn(),
-  (req, res) => {
-    const _id = req.user.id;
-    User.findOne({ _id })
-      .populate("favourites")
-      .then(user => {
-        console.log(user);
-        const searchFavourites = user.favourites;
-        res.render("passport/page-personal", {
-          user: req.user,
-          searchFavourites
-        });
-      })
-      .catch(error => console.log(error));
-  }
-);
+passportRouter.get("/maps", ensureLogin.ensureLoggedIn(), (req, res) => {
+  const _id = req.user.id;
+  User.findOne({ _id })
+    .populate("favourites")
+    .then(user => {
+      console.log(user);
+      const searchFavourites = user.favourites;
+      res.render("passport/maps", {
+        user: req.user,
+        searchFavourites
+      });
+    })
+    .catch(error => console.log(error));
+});
 
 passportRouter.get("/info", (req, res, next) => {
   return res.render("passport/info");

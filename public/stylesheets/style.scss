@@ -755,14 +755,17 @@ ul.actions li {
 }
 
 #follow {
+  display: flex;
   padding: 4em;
   flex-direction: column;
   margin: 2em;
+  text-align: center;
 }
 
 #follow h2 {
   color: #fff;
   font-family: "Pacifico", cursive;
+  font-size: 4em;
 }
 .followcards {
   display: flex;
@@ -770,4 +773,8 @@ ul.actions li {
 
 .pacific-font {
   font-family: "Pacifico", cursive;
+}
+
+.colors {
+  color: #fff;
 }

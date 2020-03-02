@@ -651,18 +651,24 @@ ul.actions li {
   padding-top: 1em; }
 
 #follow {
+  display: flex;
   padding: 4em;
   flex-direction: column;
-  margin: 2em; }
+  margin: 2em;
+  text-align: center; }
 
 #follow h2 {
   color: #fff;
-  font-family: "Pacifico", cursive; }
+  font-family: "Pacifico", cursive;
+  font-size: 4em; }
 
 .followcards {
   display: flex; }
 
 .pacific-font {
   font-family: "Pacifico", cursive; }
+
+.colors {
+  color: #fff; }
 
 /*# sourceMappingURL=style.css.map */
