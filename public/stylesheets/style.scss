@@ -443,7 +443,7 @@ h4 {
 
 .title-info {
   text-align: center;
-  margin: 15px;
+  margin-bottom: 25px;
 }
 
 .list {
@@ -728,4 +728,51 @@ ul.actions li {
   display: inline-block;
   padding: 0 1em 0 0;
   vertical-align: middle;
+}
+
+.prueba {
+  width: 740px;
+  height: 314px;
+  display: block;
+  margin: auto;
+  background-image: url(../images/404.gif);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+#about {
+  display: flex;
+  padding: 4em;
+  margin: 2em;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#about h2 {
+  color: #fff;
+  font-family: "Pacifico", cursive;
+}
+
+#about p {
+  color: #fff;
+  font-size: 1.5em;
+  padding-top: 1em;
+}
+
+#follow {
+  padding: 4em;
+  flex-direction: column;
+  margin: 2em;
+}
+
+#follow h2 {
+  color: #fff;
+  font-family: "Pacifico", cursive;
+}
+.followcards {
+  display: flex;
+}
+
+.pacific-font {
+  font-family: "Pacifico", cursive;
 }
